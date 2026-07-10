@@ -285,67 +285,23 @@
       .hamburger { display: flex; }
       section { padding: 64px 20px; }
       .hero-content { padding: 0 20px 60px; }
-      .hero { min-height: 540px; }
-      .hero p { max-width: 520px; }
       .about { grid-template-columns: 1fr; gap: 40px; }
       .about-img { height: 380px; }
       .recipe-panel.active { grid-template-columns: 1fr; }
-      .recipe-card-head { flex-direction: column; }
-      .recipe-visual, .recipe-visual-frame { width: 100%; }
-      .recipe-visual-frame { height: 180px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
       .brand-strip { padding: 16px 20px; gap: 20px; }
       .cart-drawer { width: 380px; }
     }
     @media (max-width: 640px) {
-      nav { height: 64px; padding: 0 16px; }
-      .nav-logo-img { width: 72px; height: 72px; }
-      .nav-logo-text { font-size: 13px; }
-      .nav-logo-text span { font-size: 9px; }
-      .mobile-menu { inset: 64px 0 0 0; padding: 18px; }
-      .hero { min-height: 0; height: auto; padding-top: 64px; }
-      .hero-content { padding: 54px 16px 44px; }
-      .hero h1 { font-size: clamp(34px, 12vw, 50px); }
-      .hero p { font-size: 14px; margin-bottom: 24px; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .btn-primary, .btn-outline, .btn-gold, .btn-outline-green { width: 100%; text-align: center; }
-      .scroll-ind { display: none; }
-      .brand-strip { gap: 12px; padding: 14px 16px; }
-      .bsi { font-size: 9px; }
-      section { padding: 52px 16px; }
-      .about-img { height: 280px; }
-      .about-badge { bottom: 14px; left: 14px; padding: 14px 16px; }
-      .about-badge-n { font-size: 28px; }
-      .catalog-header { margin-bottom: 28px; }
-      .cat-filters { margin-bottom: 28px; }
-      .products-grid { grid-template-columns: 1fr; }
-      .pc-img, .pc-slideshow { height: 240px; }
-      .pc-body { padding: 16px; }
-      .recipe-tabs { margin: 24px 0 28px; }
-      .recipe-card-head { padding: 18px 18px 0; }
-      .recipe-card-body { padding: 12px 18px 18px; }
-      .recipe-steps { padding-top: 10px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 22px; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; }
-      .cart-drawer { width: 100vw; }
-      .cart-head, .cart-items, .cart-notes-wrap, .cart-foot { padding-left: 18px; padding-right: 18px; }
-      .cart-fab { width: 54px; height: 54px; bottom: 18px; right: 18px; }
-      .toast { bottom: 86px; white-space: normal; width: calc(100vw - 32px); text-align: center; }
-      .cta-actions { flex-direction: column; }
-      .cta-section { padding: 52px 16px; }
-      footer { padding: 40px 16px 20px; }
+      .products-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 56px 20px; }
+      footer { padding: 44px 20px 22px; }
       .about-vals { grid-template-columns: 1fr; }
+      .cart-drawer { width: 100vw; }
     }
     @media (max-width: 420px) {
-      section { padding: 46px 14px; }
-      .hero-content { padding: 44px 14px 38px; }
-      .hero-eyebrow { font-size: 9px; gap: 8px; }
-      .sec-title { font-size: clamp(24px, 9vw, 34px); }
-      .sec-sub { font-size: 14px; }
       .products-grid { grid-template-columns: 1fr; }
-      .recipe-name { font-size: 14px; }
-      .recipe-desc { font-size: 12px; }
-      .cart-item-name { white-space: normal; }
     }
   </style>
 </head>
