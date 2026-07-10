@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rancho Bien Amado — Productos Artesanales Gourmet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:          #F7F3EC;
+      --bg-dark:     #1C2B18;
+      --fg:          #1A1A14;
+      --fg-muted:    #5A5A4A;
+      --green:       #2E5E1E;
+      --green-light: #3D7A28;
+      --green-pale:  #EBF2E6;
+      --terra:       #C4552A;
+      --terra-light: #D96A3F;
+      --gold:        #C89B2A;
+      --gold-light:  #E8B830;
+      --cream:       #FAF7F0;
+      --border:      rgba(46,94,30,0.15);
+      --shadow:      0 4px 32px rgba(0,0,0,0.08);
+      --shadow-lg:   0 16px 64px rgba(0,0,0,0.16);
+      --radius-sm:   4px;
+      --radius-md:   8px;
+      --radius-lg:   16px;
+      --font-head:   'Montserrat', sans-serif;
+      --font-body:   'Inter', sans-serif;
+      --t:           0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--bg); color: var(--fg); line-height: 1.6; overflow-x: hidden; }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 3px; }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 70px; background: rgba(247,243,236,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); transition: box-shadow var(--t); }
+    nav.scrolled { box-shadow: var(--shadow); }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo-img { width: 110px; height: 110px; object-fit: contain; flex-shrink: 0; }
+    .nav-logo-text { font-family: var(--font-head); font-weight: 700; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); line-height: 1.2; }
+    .nav-logo-text span { display: block; font-weight: 400; font-size: 10px; letter-spacing: 0.18em; color: var(--terra); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-family: var(--font-head); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-muted); transition: color var(--t); }
+    .nav-links a:hover { color: var(--green); }
+    .nav-cta { background: var(--green) !important; color: #fff !important; padding: 9px 22px; border-radius: var(--radius-sm); font-size: 11px !important; transition: background var(--t) !important; }
+    .nav-cta:hover { background: var(--green-light) !important; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > button { font-family: var(--font-head); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-muted); background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: color var(--t); }
+    .nav-dropdown > button:hover, .nav-dropdown.open > button { color: var(--green); }
+    .nav-dropdown > button svg { transition: transform var(--t); }
+    .nav-dropdown.open > button svg { transform: rotate(180deg); }
+    .dropdown-panel { position: absolute; top: calc(100% + 18px); left: 50%; transform: translateX(-50%) translateY(-6px); background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); min-width: 640px; padding: 28px; display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; opacity: 0; pointer-events: none; transition: opacity var(--t), transform var(--t); }
+    .nav-dropdown.open .dropdown-panel { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .dropdown-col h4 { font-family: var(--font-head); font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra); margin-bottom: 10px; padding-bottom: 7px; border-bottom: 1px solid var(--border); }
+    .dropdown-col ul li { padding: 4px 0; }
+    .dropdown-col ul li a { font-size: 12px; color: var(--fg-muted); transition: color var(--t); display: block; }
+    .dropdown-col ul li a:hover { color: var(--green); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--fg); border-radius: 2px; transition: transform var(--t), opacity var(--t); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { position: fixed; inset: 70px 0 0 0; background: var(--cream); z-index: 199; padding: 24px; overflow-y: auto; transform: translateX(100%); transition: transform var(--t); }
+    .mobile-menu.open { transform: translateX(0); }
+    .mobile-nav-link { display: block; font-family: var(--font-head); font-size: 17px; font-weight: 600; color: var(--fg); padding: 13px 0; border-bottom: 1px solid var(--border); }
+    .mob-cat-title { font-family: var(--font-head); font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terra); margin: 18px 0 7px; }
+    .mob-cat-items li a { display: block; font-size: 13px; color: var(--fg-muted); padding: 5px 0; }
+
+    /* ── HERO ── */
+    .hero { position: relative; height: 100vh; min-height: 580px; display: flex; align-items: flex-end; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background-image: url('catalogoimagenes/rancho.jpg'); background-size: cover; background-position: center; transform: scale(1.04); transition: transform 8s ease-out; }
+    .hero-bg.loaded { transform: scale(1); }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(28,43,24,0.93) 0%, rgba(28,43,24,0.48) 45%, rgba(28,43,24,0.12) 100%); }
+    .hero-content { position: relative; z-index: 2; padding: 0 80px 76px; max-width: 780px; }
+    .hero-eyebrow { font-family: var(--font-head); font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 18px; display: flex; align-items: center; gap: 12px; }
+    .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold-light); }
+    .hero h1 { font-family: var(--font-head); font-size: clamp(40px, 6vw, 76px); font-weight: 800; line-height: 1.05; color: #fff; margin-bottom: 20px; letter-spacing: -0.02em; }
+    .hero h1 em { font-style: normal; color: var(--gold-light); }
+    .hero p { font-size: 15px; color: rgba(255,255,255,0.76); max-width: 460px; margin-bottom: 36px; line-height: 1.75; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary { background: var(--terra); color: #fff; font-family: var(--font-head); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 15px 34px; border-radius: var(--radius-sm); border: none; cursor: pointer; transition: background var(--t), transform var(--t); display: inline-block; }
+    .btn-primary:hover { background: var(--terra-light); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: #fff; font-family: var(--font-head); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 34px; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.42); cursor: pointer; transition: border-color var(--t), background var(--t); display: inline-block; }
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.07); }
+    .scroll-ind { position: absolute; bottom: 28px; right: 44px; display: flex; align-items: center; gap: 9px; color: rgba(255,255,255,0.45); font-family: var(--font-head); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; z-index: 2; }
+    .scroll-ind::after { content: ''; display: block; width: 1px; height: 44px; background: rgba(255,255,255,0.22); }
+
+    /* ── BRAND STRIP ── */
+    .brand-strip { background: var(--green); padding: 18px 80px; display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
+    .bsi { display: flex; align-items: center; gap: 9px; color: rgba(255,255,255,0.84); font-family: var(--font-head); font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+
+    /* ── SECTION HELPERS ── */
+    section { padding: 88px 80px; }
+    .sec-label { font-family: var(--font-head); font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terra); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .sec-label::after { content: ''; display: block; flex: 1; max-width: 36px; height: 1px; background: var(--terra); }
+    .sec-title { font-family: var(--font-head); font-size: clamp(26px, 4vw, 44px); font-weight: 800; line-height: 1.1; color: var(--fg); letter-spacing: -0.02em; margin-bottom: 14px; }
+    .sec-sub { font-size: 15px; color: var(--fg-muted); max-width: 500px; line-height: 1.72; }
+
+    /* ── ABOUT ── */
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .about-img { position: relative; border-radius: var(--radius-lg); overflow: hidden; height: 540px; background: var(--green-pale); }
+    .about-img img { height: 100%; }
+    .about-badge { position: absolute; bottom: 28px; left: 28px; background: var(--green); color: #fff; padding: 18px 22px; border-radius: var(--radius-md); }
+    .about-badge-n { font-family: var(--font-head); font-size: 34px; font-weight: 800; line-height: 1; color: var(--gold-light); }
+    .about-badge-t { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; color: rgba(255,255,255,0.78); margin-top: 3px; }
+    .about-content p { font-size: 15px; color: var(--fg-muted); line-height: 1.82; margin-bottom: 22px; }
+    .about-vals { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 36px; }
+    .about-val { padding: 18px; background: var(--green-pale); border-radius: var(--radius-md); border-left: 3px solid var(--green); }
+    .about-val h5 { font-family: var(--font-head); font-size: 12px; font-weight: 700; color: var(--green); margin-bottom: 3px; }
+    .about-val p { font-size: 11px; color: var(--fg-muted); line-height: 1.5; margin: 0; }
+
+    /* ── CATALOG ── */
+    .catalog-section { background: var(--cream); }
+    .catalog-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; }
+    .cat-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+    .cat-filter { font-family: var(--font-head); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 9px 20px; border-radius: 100px; border: 1.5px solid var(--border); background: #fff; color: var(--fg-muted); cursor: pointer; transition: all var(--t); }
+    .cat-filter:hover { border-color: var(--green); color: var(--green); }
+    .cat-filter.active { background: var(--green); border-color: var(--green); color: #fff; }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+    .product-card { background: #fff; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border); transition: box-shadow var(--t), transform var(--t); display: flex; flex-direction: column; }
+    .product-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+    .product-card.hidden { display: none; }
+    .pc-img { height: 290px; background: var(--green-pale); overflow: hidden; position: relative; flex-shrink: 0; }
+    .pc-img img { height: 100%; transition: transform 0.5s ease; }
+    .product-card:hover .pc-img img { transform: scale(1.05); }
+    .pc-badge { position: absolute; top: 12px; left: 12px; font-family: var(--font-head); font-size: 8px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 9px; border-radius: 2px; color: #fff; }
+    .pc-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+    .pc-cat { font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--terra); margin-bottom: 6px; }
+    .pc-name { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--fg); margin-bottom: 6px; line-height: 1.3; }
+    .pc-desc { font-size: 12px; color: var(--fg-muted); line-height: 1.6; margin-bottom: 16px; flex: 1; }
+    .pc-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .pc-price { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--green); }
+    .btn-add { display: flex; align-items: center; gap: 6px; background: var(--green); color: #fff; font-family: var(--font-head); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 9px 16px; border-radius: var(--radius-sm); border: none; cursor: pointer; transition: background var(--t), transform var(--t); flex-shrink: 0; }
+    .btn-add:hover { background: var(--green-light); transform: scale(1.03); }
+    .btn-add.added { background: var(--terra); }
+    .btn-add svg { width: 13px; height: 13px; }
+
+    /* Pack slideshow */
+    .pc-slideshow { position: relative; height: 290px; background: var(--green-pale); overflow: hidden; flex-shrink: 0; }
+    .pc-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.8s ease; }
+    .pc-slide.active { opacity: 1; }
+    .pc-slide img { width: 100%; height: 100%; object-fit: cover; }
+    .pc-slide-dots { position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center; gap: 5px; z-index: 2; }
+    .pc-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.45); transition: background var(--t), transform var(--t); cursor: pointer; border: none; padding: 0; }
+    .pc-dot.active { background: #fff; transform: scale(1.3); }
+
+    /* ── CART FAB ── */
+    .cart-fab { position: fixed; bottom: 28px; right: 28px; z-index: 300; width: 60px; height: 60px; border-radius: 50%; background: var(--green); color: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 24px rgba(46,94,30,0.45); transition: background var(--t), transform var(--t); }
+    .cart-fab:hover { background: var(--green-light); transform: scale(1.08); }
+    .cart-fab svg { width: 26px; height: 26px; }
+    .cart-badge { position: absolute; top: -4px; right: -4px; background: var(--terra); color: #fff; font-family: var(--font-head); font-size: 11px; font-weight: 700; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid var(--cream); opacity: 0; transform: scale(0); transition: opacity var(--t), transform var(--t); }
+    .cart-badge.visible { opacity: 1; transform: scale(1); }
+    .cart-fab-pulse { animation: pulse 0.4s ease; }
+    @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.18)} }
+
+    /* ── CART DRAWER ── */
+    .cart-overlay { position: fixed; inset: 0; z-index: 400; background: rgba(0,0,0,0.45); backdrop-filter: blur(3px); opacity: 0; pointer-events: none; transition: opacity var(--t); }
+    .cart-overlay.open { opacity: 1; pointer-events: auto; }
+    .cart-drawer { position: fixed; top: 0; right: 0; bottom: 0; z-index: 401; width: 420px; max-width: 100vw; background: var(--cream); transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); display: flex; flex-direction: column; box-shadow: -8px 0 48px rgba(0,0,0,0.12); }
+    .cart-drawer.open { transform: translateX(0); }
+    .cart-head { padding: 24px 24px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+    .cart-head-title { font-family: var(--font-head); font-size: 16px; font-weight: 800; color: var(--fg); }
+    .cart-head-sub { font-size: 12px; color: var(--fg-muted); margin-top: 2px; }
+    .cart-close { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--fg-muted); transition: background var(--t), color var(--t); }
+    .cart-close:hover { background: var(--green); color: #fff; border-color: var(--green); }
+    .cart-items { flex: 1; overflow-y: auto; padding: 16px 24px; }
+    .cart-empty { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: var(--fg-muted); text-align: center; padding: 40px; }
+    .cart-empty svg { width: 56px; height: 56px; opacity: 0.25; }
+    .cart-empty p { font-size: 14px; line-height: 1.6; }
+    .cart-empty strong { font-family: var(--font-head); font-size: 16px; color: var(--fg); display: block; margin-bottom: 4px; }
+    .cart-item { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); animation: slideIn 0.25s ease; }
+    @keyframes slideIn { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
+    .cart-item-emoji { font-size: 28px; flex-shrink: 0; width: 48px; height: 48px; background: var(--green-pale); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; }
+    .cart-item-info { flex: 1; min-width: 0; }
+    .cart-item-cat { font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--terra); }
+    .cart-item-name { font-family: var(--font-head); font-size: 14px; font-weight: 700; color: var(--fg); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cart-item-controls { display: flex; align-items: center; gap: 0; margin-top: 8px; }
+    .qty-btn { width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--border); background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: var(--fg-muted); transition: all var(--t); line-height: 1; }
+    .qty-btn:hover { border-color: var(--green); color: var(--green); background: var(--green-pale); }
+    .qty-btn.minus:hover { border-color: var(--terra); color: var(--terra); background: #fef0ea; }
+    .qty-display { width: 36px; text-align: center; font-family: var(--font-head); font-size: 14px; font-weight: 700; color: var(--fg); }
+    .cart-item-del { width: 28px; height: 28px; border: none; background: none; cursor: pointer; color: var(--fg-muted); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: color var(--t), background var(--t); }
+    .cart-item-del:hover { color: var(--terra); background: #fef0ea; }
+    .cart-notes-wrap { padding: 14px 24px; border-top: 1px solid var(--border); flex-shrink: 0; }
+    .cart-notes-label { font-family: var(--font-head); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-muted); margin-bottom: 8px; }
+    .cart-notes { width: 100%; padding: 10px 12px; font-family: var(--font-body); font-size: 13px; color: var(--fg); background: #fff; border: 1px solid var(--border); border-radius: var(--radius-sm); resize: none; outline: none; transition: border-color var(--t); }
+    .cart-notes:focus { border-color: var(--green); }
+    .cart-foot { padding: 20px 24px 24px; border-top: 1px solid var(--border); flex-shrink: 0; background: var(--cream); }
+    .cart-summary { margin-bottom: 16px; }
+    .cart-count-line { display: flex; justify-content: space-between; font-size: 13px; color: var(--fg-muted); padding: 4px 0; }
+    .cart-count-line strong { font-family: var(--font-head); font-size: 14px; font-weight: 700; color: var(--fg); }
+    .btn-whatsapp { width: 100%; padding: 16px; background: #25D366; color: #fff; font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; border-radius: var(--radius-sm); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background var(--t), transform var(--t); margin-bottom: 10px; }
+    .btn-whatsapp:hover { background: #1ebe5d; transform: translateY(-1px); }
+    .btn-whatsapp:disabled { background: #aaa; cursor: not-allowed; transform: none; }
+    .btn-whatsapp svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .btn-clear-cart { width: 100%; padding: 10px; background: none; border: 1px solid var(--border); border-radius: var(--radius-sm); font-family: var(--font-head); font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-muted); cursor: pointer; transition: all var(--t); }
+    .btn-clear-cart:hover { border-color: var(--terra); color: var(--terra); }
+    .toast { position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--bg-dark); color: #fff; font-family: var(--font-head); font-size: 12px; font-weight: 600; padding: 12px 24px; border-radius: 100px; box-shadow: var(--shadow-lg); z-index: 500; opacity: 0; pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease; white-space: nowrap; }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ══════════════════════════════════════════
+       RECETAS
+    ══════════════════════════════════════════ */
+    .recipes-section { background: var(--bg-dark); }
+    .recipes-section .sec-label { color: var(--gold-light); }
+    .recipes-section .sec-label::after { background: var(--gold-light); }
+    .recipes-section .sec-title { color: #fff; }
+    .recipes-section .sec-sub { color: rgba(255,255,255,0.6); }
+
+    .recipe-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 32px 0 36px; }
+    .recipe-tab { font-family: var(--font-head); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 9px 20px; border-radius: 100px; border: 1.5px solid rgba(255,255,255,0.18); background: transparent; color: rgba(255,255,255,0.55); cursor: pointer; transition: all var(--t); }
+    .recipe-tab:hover { border-color: var(--gold-light); color: var(--gold-light); }
+    .recipe-tab.active { background: var(--gold); border-color: var(--gold); color: #fff; }
+
+    .recipe-panel { display: none; }
+    .recipe-panel.active { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+
+    .recipe-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); overflow: hidden; transition: background var(--t), transform var(--t); }
+    .recipe-card:hover { background: rgba(255,255,255,0.09); transform: translateY(-3px); }
+    .recipe-card-head { padding: 22px 22px 0; display: flex; align-items: flex-start; gap: 16px; justify-content: space-between; }
+    .recipe-card-copy { min-width: 0; flex: 1; }
+    .recipe-visual { flex-shrink: 0; width: 132px; }
+    .recipe-visual-frame { width: 132px; height: 132px; border-radius: var(--radius-lg); overflow: hidden; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 24px rgba(0,0,0,0.14); }
+    .recipe-visual-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .recipe-name { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: #fff; line-height: 1.25; margin-bottom: 7px; }
+    .recipe-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .recipe-tag { font-family: var(--font-head); font-size: 8px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; }
+    .recipe-tag-time { background: rgba(200,155,42,0.25); color: var(--gold-light); }
+    .recipe-tag-diff { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.45); }
+    .recipe-card-body { padding: 14px 22px 22px; }
+    .recipe-ingredients { font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.1em; font-family: var(--font-head); font-weight: 600; margin-bottom: 5px; }
+    .recipe-desc { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.68; margin-bottom: 14px; }
+    .recipe-steps { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 12px; }
+    .recipe-step { display: flex; gap: 9px; align-items: flex-start; font-size: 12px; color: rgba(255,255,255,0.58); line-height: 1.6; margin-bottom: 6px; }
+    .recipe-step-num { flex-shrink: 0; width: 19px; height: 19px; background: var(--gold); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-size: 9px; font-weight: 700; margin-top: 2px; }
+
+    /* ── CTA ── */
+    .cta-section { background: var(--cream); text-align: center; }
+    .cta-section .sec-label { justify-content: center; }
+    .cta-section .sec-label::before { content: ''; display: block; flex: 1; max-width: 36px; height: 1px; background: var(--terra); }
+    .cta-section .sec-title { margin: 0 auto 14px; max-width: 560px; }
+    .cta-section .sec-sub { margin: 0 auto 36px; text-align: center; }
+    .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-gold { background: var(--gold); color: #fff; font-family: var(--font-head); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 15px 38px; border-radius: var(--radius-sm); border: none; cursor: pointer; transition: background var(--t), transform var(--t); display: inline-block; }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-outline-green { background: transparent; color: var(--green); font-family: var(--font-head); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 38px; border-radius: var(--radius-sm); border: 1.5px solid var(--green); cursor: pointer; transition: background var(--t), color var(--t); display: inline-block; }
+    .btn-outline-green:hover { background: var(--green); color: #fff; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--bg-dark); color: rgba(255,255,255,0.62); padding: 60px 80px 28px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 48px; }
+    .footer-brand-txt { font-family: var(--font-head); font-weight: 700; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; line-height: 1.2; }
+    .footer-brand-txt span { display: block; font-weight: 400; font-size: 10px; letter-spacing: 0.18em; color: var(--terra); }
+    .footer-logo-img { width: 130px; height: 130px; object-fit: contain; flex-shrink: 0; }
+    .footer-brand p { font-size: 13px; line-height: 1.7; margin: 18px 0 24px; color: rgba(255,255,255,0.52); }
+    .footer-social { display: flex; gap: 18px; align-items: center; }
+    .footer-social a { display: flex; align-items: center; justify-content: center; }
+    .social-icon { width: 32px; height: 32px; object-fit: contain; transition: all .3s ease; }
+    .social-icon:hover { transform: scale(1.15); }
+    .footer-col h5 { font-family: var(--font-head); font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.38); margin-bottom: 18px; }
+    .footer-col ul li { margin-bottom: 9px; }
+    .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.58); transition: color var(--t); }
+    .footer-col ul li a:hover { color: var(--gold-light); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+    .footer-bottom p { font-size: 11px; }
+
+    /* ── FADE IN ── */
+    .fi { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fi.v { opacity: 1; transform: translateY(0); }
+    .fi-d1 { transition-delay: 0.1s; }
+    .fi-d2 { transition-delay: 0.2s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 64px 20px; }
+      .hero-content { padding: 0 20px 60px; }
+      .hero { min-height: 540px; }
+      .hero p { max-width: 520px; }
+      .about { grid-template-columns: 1fr; gap: 40px; }
+      .about-img { height: 380px; }
+      .recipe-panel.active { grid-template-columns: 1fr; }
+      .recipe-card-head { flex-direction: column; }
+      .recipe-visual, .recipe-visual-frame { width: 100%; }
+      .recipe-visual-frame { height: 180px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .brand-strip { padding: 16px 20px; gap: 20px; }
+      .cart-drawer { width: 380px; }
+    }
+    @media (max-width: 640px) {
+      nav { height: 64px; padding: 0 16px; }
+      .nav-logo-img { width: 72px; height: 72px; }
+      .nav-logo-text { font-size: 13px; }
+      .nav-logo-text span { font-size: 9px; }
+      .mobile-menu { inset: 64px 0 0 0; padding: 18px; }
+      .hero { min-height: 0; height: auto; padding-top: 64px; }
+      .hero-content { padding: 54px 16px 44px; }
+      .hero h1 { font-size: clamp(34px, 12vw, 50px); }
+      .hero p { font-size: 14px; margin-bottom: 24px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn-primary, .btn-outline, .btn-gold, .btn-outline-green { width: 100%; text-align: center; }
+      .scroll-ind { display: none; }
+      .brand-strip { gap: 12px; padding: 14px 16px; }
+      .bsi { font-size: 9px; }
+      section { padding: 52px 16px; }
+      .about-img { height: 280px; }
+      .about-badge { bottom: 14px; left: 14px; padding: 14px 16px; }
+      .about-badge-n { font-size: 28px; }
+      .catalog-header { margin-bottom: 28px; }
+      .cat-filters { margin-bottom: 28px; }
+      .products-grid { grid-template-columns: 1fr; }
+      .pc-img, .pc-slideshow { height: 240px; }
+      .pc-body { padding: 16px; }
+      .recipe-tabs { margin: 24px 0 28px; }
+      .recipe-card-head { padding: 18px 18px 0; }
+      .recipe-card-body { padding: 12px 18px 18px; }
+      .recipe-steps { padding-top: 10px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 22px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .cart-drawer { width: 100vw; }
+      .cart-head, .cart-items, .cart-notes-wrap, .cart-foot { padding-left: 18px; padding-right: 18px; }
+      .cart-fab { width: 54px; height: 54px; bottom: 18px; right: 18px; }
+      .toast { bottom: 86px; white-space: normal; width: calc(100vw - 32px); text-align: center; }
+      .cta-actions { flex-direction: column; }
+      .cta-section { padding: 52px 16px; }
+      footer { padding: 40px 16px 20px; }
+      .about-vals { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 420px) {
+      section { padding: 46px 14px; }
+      .hero-content { padding: 44px 14px 38px; }
+      .hero-eyebrow { font-size: 9px; gap: 8px; }
+      .sec-title { font-size: clamp(24px, 9vw, 34px); }
+      .sec-sub { font-size: 14px; }
+      .products-grid { grid-template-columns: 1fr; }
+      .recipe-name { font-size: 14px; }
+      .recipe-desc { font-size: 12px; }
+      .cart-item-name { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="catalogoimagenes/logo.png" alt="Logo Rancho El Bien Amado" class="nav-logo-img" loading="lazy" />
+    <div class="nav-logo-text">Rancho El Bien Amado<span>Productos Artesanales</span></div>
+  </a>
+  <ul class="nav-links" style="list-style:none;display:flex;align-items:center;gap:32px;">
+    <li>
+      <div class="nav-dropdown" id="navDrop">
+        <button onclick="toggleDrop('navDrop')">
+          Catálogo
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="currentColor"><path d="M6 8L1 3h10L6 8z"/></svg>
+        </button>
+        <div class="dropdown-panel">
+          <div class="dropdown-col">
+            <h4>🥩 Carne de Borrego</h4>
+            <ul>
+              <li><a href="#catalogo" onclick="filterCat('borrego')">Rack Chops</a></li>
+              <li><a href="#catalogo" onclick="filterCat('borrego')">Rack Francés</a></li>
+              <li><a href="#catalogo" onclick="filterCat('borrego')">Forequarter</a></li>
+              <li><a href="#catalogo" onclick="filterCat('borrego')">T-Bone</a></li>
+              <li><a href="#catalogo" onclick="filterCat('borrego')">Osobuco</a></li>
+              <li><a href="#catalogo" onclick="filterCat('borrego')">Medallón de Pierna</a></li>
+              <li><a href="#catalogo" onclick="filterCat('borrego')">Pierna en Cubos</a></li>
+              <li><a href="#catalogo" onclick="filterCat('borrego')">Chorizo</a></li>
+              <li><a href="#catalogo" onclick="filterCat('borrego')">Gaoneras</a></li>
+            </ul>
+            <h4 style="margin-top:18px;">🍔 Hamburguesas</h4>
+            <ul>
+              <li><a href="#catalogo" onclick="filterCat('hamburguesas')">Hamburguesa de 500g</a></li>
+              <li><a href="#catalogo" onclick="filterCat('hamburguesas')">Hamburguesa de 600g</a></li>
+            </ul>
+          </div>
+          <div class="dropdown-col">
+            <h4>🍶 Vinagres Artesanales</h4>
+            <ul>
+              <li><a href="#catalogo" onclick="filterCat('vinagres')">Vinagre de Manzana</a></li>
+              <li><a href="#catalogo" onclick="filterCat('vinagres')">Vinagre de Pera</a></li>
+              <li><a href="#catalogo" onclick="filterCat('vinagres')">Vinagre de Albahaca</a></li>
+            </ul>
+            <h4 style="margin-top:18px;">🍯 Miel Artesanal</h4>
+            <ul>
+              <li><a href="#catalogo" onclick="filterCat('miel')">Miel Multifloral</a></li>
+            </ul>
+          </div>
+          <div class="dropdown-col">
+            <h4>🧪 Fermentos Naturales</h4>
+            <ul>
+              <li><a href="#catalogo" onclick="filterCat('fermentos')">Kombucha</a></li>
+              <li><a href="#catalogo" onclick="filterCat('fermentos')">Kéfir Líquido</a></li>
+              <li><a href="#catalogo" onclick="filterCat('fermentos')">Kéfir Untable</a></li>
+            </ul>
+            <h4 style="margin-top:18px;">🍵 Kombucha Té Negro</h4>
+            <ul>
+              <li><a href="#catalogo" onclick="filterCat('kombucha-negro')">Kombucha Clásica</a></li>
+            </ul>
+          </div>
+          <div class="dropdown-col">
+            <h4>🛒 Pedido Rápido</h4>
+            <ul>
+              <li><a href="#catalogo">Ver catálogo completo</a></li>
+              <li><a href="#" onclick="openCart()">Ver mi carrito</a></li>
+              <li><a href="#recetas">Recetas</a></li>
+              <li><a href="#nosotros">Nuestra historia</a></li>
+              <li><a href="#contacto">Contacto</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#recetas">Recetas</a></li>
+    <li><a href="#" onclick="openCart()" style="display:flex;align-items:center;gap:7px;font-family:var(--font-head);font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--fg-muted);transition:color var(--t);" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--fg-muted)'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      Carrito (<span id="navCartCount">0</span>)
+    </a></li>
+    <li><a href="#contacto" class="nav-cta">Hacer Pedido</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMob()" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a class="mobile-nav-link" href="#nosotros" onclick="closeMob()">Nosotros</a>
+  <a class="mobile-nav-link" href="#catalogo" onclick="closeMob()">Catálogo completo</a>
+  <a class="mobile-nav-link" href="#recetas" onclick="closeMob()">Recetas</a>
+  <a class="mobile-nav-link" href="#" onclick="closeMob();openCart()">🛒 Ver carrito (<span id="mobCartCount">0</span>)</a>
+  <div class="mob-cat-title">🥩 Carne de Borrego</div>
+  <ul class="mob-cat-items">
+    <li><a href="#catalogo" onclick="closeMob();filterCat('borrego')">Rack Chops</a></li>
+    <li><a href="#catalogo" onclick="closeMob();filterCat('borrego')">Rack Francés</a></li>
+    <li><a href="#catalogo" onclick="closeMob();filterCat('borrego')">Forequarter</a></li>
+    <li><a href="#catalogo" onclick="closeMob();filterCat('borrego')">T-Bone</a></li>
+    <li><a href="#catalogo" onclick="closeMob();filterCat('borrego')">Osobuco</a></li>
+    <li><a href="#catalogo" onclick="closeMob();filterCat('borrego')">Medallón de Pierna</a></li>
+    <li><a href="#catalogo" onclick="closeMob();filterCat('borrego')">Pierna en Cubos</a></li>
+    <li><a href="#catalogo" onclick="closeMob();filterCat('borrego')">Chorizo</a></li>
+    <li><a href="#catalogo" onclick="closeMob();filterCat('borrego')">Gaoneras</a></li>
+  </ul>
+  <div class="mob-cat-title">🍔 Hamburguesas</div>
+  <ul class="mob-cat-items">
+    <li><a href="#catalogo" onclick="closeMob();filterCat('hamburguesas')">Hamburguesa de 500g</a></li>
+    <li><a href="#catalogo" onclick="closeMob();filterCat('hamburguesas')">Hamburguesa de 600g</a></li>
+  </ul>
+  <div class="mob-cat-title">🍶 Vinagres Artesanales</div>
+  <ul class="mob-cat-items">
+    <li><a href="#catalogo" onclick="closeMob();filterCat('vinagres')">Vinagre de Manzana</a></li>
+    <li><a href="#catalogo" onclick="closeMob();filterCat('vinagres')">Vinagre de Pera</a></li>
+    <li><a href="#catalogo" onclick="closeMob();filterCat('vinagres')">Vinagre de Albahaca</a></li>
+  </ul>
+  <div class="mob-cat-title">🧪 Fermentos Naturales</div>
+  <ul class="mob-cat-items">
+    <li><a href="#catalogo" onclick="closeMob();filterCat('fermentos')">Kombucha</a></li>
+    <li><a href="#catalogo" onclick="closeMob();filterCat('fermentos')">Kéfir Líquido</a></li>
+    <li><a href="#catalogo" onclick="closeMob();filterCat('fermentos')">Kéfir Untable</a></li>
+  </ul>
+  <div class="mob-cat-title">🍵 Kombucha de Té Negro</div>
+  <ul class="mob-cat-items">
+    <li><a href="#catalogo" onclick="closeMob();filterCat('kombucha-negro')">Kombucha Clásica</a></li>
+  </ul>
+  <div class="mob-cat-title">🍯 Miel Artesanal</div>
+  <ul class="mob-cat-items"><li><a href="#catalogo" onclick="closeMob();filterCat('miel')">Miel Multifloral</a></li></ul>
+  <a class="mobile-nav-link" href="#contacto" onclick="closeMob()" style="color:var(--terra);font-weight:700;margin-top:14px;">→ Hacer Pedido</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">PASTOREO LIBRE • PRODUCCIÓN ARTESANAL</div>
+    <h1>Auténticidad<br/>que se siente,<br/><em>En cada bocado.</em></h1>
+    <p>Cordero de pastoreo, fermentos naturales, productos elaborados con respeto por la tierra, la tradición y el tiempo.</p>
+    <div class="hero-actions">
+      <a href="#catalogo" class="btn-primary">Explorar Colección</a>
+      <a href="#nosotros" class="btn-outline">Nuestra Historia</a>
+    </div>
+  </div>
+  <div class="scroll-ind">Explorar</div>
+</section>
+
+<!-- Brand strip -->
+<div class="brand-strip">
+  <div class="bsi">🌿 100% Natural</div>
+  <div class="bsi">⏳ Proceso Tradicional</div>
+  <div class="bsi">🏡 Directo del Rancho</div>
+  <div class="bsi">❤️ Bienestar Animal</div>
+  <div class="bsi">👨‍🍳 Para Chefs y Restaurantes</div>
+</div>
+
+<!-- ABOUT -->
+<section id="nosotros" style="padding:88px 80px;">
+  <div class="about fi">
+    <div class="about-img">
+      <img src="catalogoimagenes/nosotros.jpg" alt="Rancho Bien Amado al amanecer" loading="lazy"/>
+      <div class="about-badge"><div class="about-badge-n">15+</div><div class="about-badge-t">Años de tradición</div></div>
+    </div>
+    <div class="about-content">
+      <div class="sec-label">Nuestra Historia</div>
+      <h2 class="sec-title">Del campo<br/>a tu mesa,<br/>con honestidad.</h2>
+      <p>En Rancho Bien Amado creemos que los mejores productos no se fabrican — se cuidan. Cada animal, cada fermentación, cada colmena es atendida con el mismo respeto que heredamos de nuestros abuelos.</p>
+      <p>Nuestro cordero crece libre en praderas naturales. Nuestros vinagres maduran en silencio durante meses. Nuestra miel proviene de flores silvestres sin manipulación.</p>
+      <div class="about-vals">
+        <div class="about-val"><h5>Sin Aditivos</h5><p>Cero preservantes ni colorantes artificiales.</p></div>
+        <div class="about-val"><h5>Bienestar Animal</h5><p>Pastoreo libre y alimentación 100% natural.</p></div>
+        <div class="about-val"><h5>Fermentación Viva</h5><p>Cultivos activos y procesos lentos y naturales.</p></div>
+        <div class="about-val"><h5>Pequeño Productor</h5><p>Producción limitada para garantizar calidad.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog-section" id="catalogo">
+  <div class="catalog-header fi">
+    <div>
+      <div class="sec-label">Catálogo Completo</div>
+      <h2 class="sec-title">Elige tus productos<br/>y arma tu pedido</h2>
+    </div>
+    <p class="sec-sub" style="max-width:300px;">Agrega lo que quieras al carrito y mándanos tu pedido directo por WhatsApp. Te contactamos para confirmar.</p>
+  </div>
+  <div class="cat-filters fi">
+    <button class="cat-filter active" onclick="filterCat('all')" data-cat="all">🛒 Todos</button>
+    <button class="cat-filter" onclick="filterCat('borrego')" data-cat="borrego">🥩 Carne de Borrego</button>
+    <button class="cat-filter" onclick="filterCat('hamburguesas')" data-cat="hamburguesas">🍔 Hamburguesas</button>
+    <button class="cat-filter" onclick="filterCat('vinagres')" data-cat="vinagres">🍶 Vinagres</button>
+    <button class="cat-filter" onclick="filterCat('fermentos')" data-cat="fermentos">🧪 Fermentos</button>
+    <button class="cat-filter" onclick="filterCat('kombucha-negro')" data-cat="kombucha-negro">🍵 Kombucha Té Negro</button>
+    <button class="cat-filter" onclick="filterCat('miel')" data-cat="miel">🍯 Miel</button>
+    <button class="cat-filter" onclick="filterCat('packs')" data-cat="packs">🎁 Packs</button>
+  </div>
+  <div class="fi" style="margin-bottom: 22px;">
+    <div class="sec-label">Packs especiales</div>
+    <h3 class="sec-title" style="font-size: clamp(22px, 3vw, 34px); margin-bottom: 10px;">Combos listos para pedido</h3>
+    <p class="sec-sub" style="max-width: 620px;">Arma tu compra con packs de 6 kombuchas, 6 kéfir o 3 vinagres. Puedes pedirlos de un solo sabor o mezclarlos según disponibilidad.</p>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- ══════════════ RECETAS ══════════════ -->
+<section class="recipes-section" id="recetas">
+  <div class="fi">
+    <div class="sec-label">Inspiración de Cocina</div>
+    <h2 class="sec-title">Recetas con nuestros<br/>productos artesanales</h2>
+    <p class="sec-sub">Ideas fáciles y deliciosas para aprovechar al máximo cada producto del rancho.</p>
+  </div>
+
+  <div class="recipe-tabs fi">
+    <button class="recipe-tab active" onclick="showRecipeTab('kefir-liq')"> Kéfir Líquido</button>
+    <button class="recipe-tab" onclick="showRecipeTab('kombucha')"> Kombucha</button>
+    <button class="recipe-tab" onclick="showRecipeTab('kefir-unt')">Kéfir Untable</button>
+    <button class="recipe-tab" onclick="showRecipeTab('vinagres')"> Vinagres</button>
+  </div>
+
+  <!-- KÉFIR LÍQUIDO -->
+  <div class="recipe-panel active" id="tab-kefir-liq">
+    <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Licuado de Kéfir con plátano y canela</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 5 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="catalogoimagenes/platano.jpg" alt="Licuado de Kéfir con plátano y canela" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Kéfir líquido · plátano maduro · miel multifloral · canela · hielo</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Licúa 1 taza de kéfir con un plátano y algunos hielos.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Agrega una cucharadita de miel y una pizca de canela.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Licúa hasta obtener una textura cremosa. Sirve frío.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-card fi fi-d1">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Agua fresca de Kéfir con fresa</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 10 minutos</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="catalogoimagenes/fresa.jpg" alt="Agua fresca de Kéfir con fresa" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Kéfir líquido · fresas naturales · miel multifloral · agua fría</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Licúa media taza de fresas con un poco de agua y miel al gusto.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Agrega 1 taza de kéfir y mezcla suavemente.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Sirve fría y disfruta una bebida fresca y natural.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-card fi fi-d2">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Kéfir con avena y fruta</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 10  min</span><span class="recipe-tag recipe-tag-diff">Intermedio</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="catalogoimagenes/manzanak.jpg" alt="Kéfir con avena y fruta" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Kéfir líquido · avena · manzana · nuez · miel</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Coloca media taza de avena en un recipiente con una taza de kéfir.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Agrega manzana picada, nueces y un poco de miel.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Deja reposar unos minutos y disfruta como desayuno.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KOMBUCHA -->
+  <div class="recipe-panel" id="tab-kombucha">
+    <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Kombucha con limón y hierbabuena</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 3 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="catalogoimagenes/hierva.jpg" alt="Kombucha con limón y hierbabuena" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Kombucha · limón · hierbabuena · hielo</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Coloca hielo en un vaso y agrega hojas de hierbabuena.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Añade jugo de medio limón.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Sirve la kombucha fría y mezcla suavemente. ¡Salud!</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-card fi fi-d1">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Paleta de Kombucha con frutos rojos</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">15 minutos + congelación</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="catalogoimagenes/frutos.jpg" alt="Paleta de Kombucha con frutos rojos" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Kombucha · fresas · frutos rojos · miel</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Licúa las frutas con un poco de kombucha.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Agrega miel al gusto y mezcla.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Coloca en moldes para paleta y congela hasta que estén listas.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-card fi fi-d2">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Cóctel sin alcohol de Kombucha tropical</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 5 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="catalogoimagenes/coctel.jpg" alt="(Cóctel sin alcohol de Kombucha tropical)" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Kombucha · piña · naranja · hielo</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Agrega cubos de piña y jugo de naranja en un vaso.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Añade hielo y kombucha fría.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Mezcla suavemente y disfruta una bebida refrescante.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KÉFIR UNTABLE -->
+  <div class="recipe-panel" id="tab-kefir-unt">
+    <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Tostadas con kéfir untable y aguacate</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 5min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="catalogoimagenes/tostada.jpg" alt="Tostadas con kéfir untable y aguacate" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Kéfir untable · tostadas de maíz · aguacate · sal · pimienta</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Unta una capa de kéfir sobre las tostadas.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Agrega rebanadas de aguacate y sazona al gusto.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Sirve como desayuno o entrada ligera.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-card fi fi-d1">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Pan artesanal con kéfir untable y miel</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 5 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="catalogoimagenes/panmiel.jpg" alt="Pan artesanal con kéfir untable y miel" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Kéfir untable · pan artesanal · miel multifloral · nueces</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Unta el kéfir sobre una rebanada de pan tostado.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Agrega un poco de miel y nueces encima.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Decora con nueces, fruta fresca y un hilo de miel multifloral del rancho.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-card fi fi-d2">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">kéfir untable con hierbas</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 10 min</span><span class="recipe-tag recipe-tag-diff">Intermedio</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="catalogoimagenes/cilandro.jpg" alt="kéfir untable con hierbas" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Kéfir untable · cilantro · limón · ajo · sal</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Mezcla el kéfir untable con cilantro picado y un poco de ajo.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Agrega unas gotas de limón y sal al gusto.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Acompaña con verduras, galletas saladas o totopos..</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VINAGRES -->
+  <div class="recipe-panel" id="tab-vinagres">
+    <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Ensalada fresca con vinagre artesanal de manzana</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 10 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="catalogoimagenes/pepino.jpg" alt="Ensalada fresca con vinagre artesanal de manzana" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Lechuga fresca · jitomate · pepino · aguacate · queso fresco o kefir untable  · vinagre artesanal de manzana · aceite de oliva</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Lava y corta las verduras en trozos pequeños.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Agrega aguacate y queso fresco o kefir untable para darle una textura cremosa.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Finaliza con aceite de oliva y unas gotas de nuestro vinagre artesanal de manzana.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-card fi fi-d1">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Pollo al sartén con vinagre de pera</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 35 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="catalogoimagenes/pollo.jpg" alt="Pollo al sartén con vinagre de pera" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Pechuga de pollo · pera · vinagre artesanal de pera · ajo · pimienta · aceite de oliva</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Sazona el pollo con ajo, pimienta y aceite de oliva.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Cocina con trozos de pera hasta que tome un sabor dulce.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Agrega vinagre artesanal de pera al finalizar para darle un toque especial.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-card fi fi-d2">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Marinada de Albahaca para Cordero</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 10 min + reposo</span><span class="recipe-tag recipe-tag-diff">Intermedio</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="catalogoimagenes/salsa.jpg" alt="Marinada de Albahaca para Cordero" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Vinagre de Albahaca · ajo · aceite de oliva · romero · orégano · limón · sal gruesa</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Mezcla 3 cucharadas de vinagre de albahaca, ¼ taza aceite, ajo y hierbas.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Baña los cortes de cordero y deja marinar en refrigerador mínimo 2 horas.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Sella en parrilla caliente. El vinagre da una costra caramelizada única.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contacto">
+  <div class="sec-label" style="justify-content:center;">Hacer un Pedido</div>
+  <h2 class="sec-title fi">¿Listo para probar<br/>lo auténtico?</h2>
+  <p class="sec-sub fi">Trabajamos con restaurantes, chefs y clientes directos. Cuéntanos qué necesitas o usa el catálogo para armar tu pedido.</p>
+  <div class="cta-actions fi">
+    <a href="#catalogo" class="btn-gold">🛒 Ir al Catálogo</a>
+    <a href="#" onclick="openCart()" class="btn-outline-green">Ver mi Carrito</a>
+  </div>
+  <p style="margin-top:36px;font-size:12px;color:var(--fg-muted);">También puedes escribirnos directamente a WhatsApp o por correo.<br/><strong style="color:var(--green);">Pregunta por precios al mayoreo para restaurantes.</strong></p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:11px;">
+        <img src="catalogoimagenes/logo.png" alt="Logo Rancho Bien Amado" class="footer-logo-img" loading="lazy" />
+        <div class="footer-brand-txt">Rancho Bien Amado<span>Productos Artesanales</span></div>
+      </div>
+      <p>Del campo a tu mesa, con honestidad. Productos naturales de alta calidad, elaborados con respeto por la tierra y tradición generacional.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/ranchoelbienamado?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" aria-label="Instagram">
+          <img src="catalogoimagenes/instagram.png" alt="Instagram" class="social-icon">
+        </a>
+        <a href="https://www.facebook.com/share/17vkDMrKSZ/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
+          <img src="catalogoimagenes/facebook.png" alt="Facebook" class="social-icon">
+        </a>
+        <a href="https://www.tiktok.com/@ranchoelbienamado?_r=1&_t=ZS-97jHB5maIDJ" target="_blank" aria-label="TikTok">
+          <img src="catalogoimagenes/tiktok.png" alt="TikTok" class="social-icon">
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Productos</h5>
+      <ul>
+        <li><a href="#catalogo" onclick="filterCat('borrego')">Carne de Borrego</a></li>
+        <li><a href="#catalogo" onclick="filterCat('vinagres')">Vinagres Artesanales</a></li>
+        <li><a href="#catalogo" onclick="filterCat('fermentos')">Fermentos Naturales</a></li>
+        <li><a href="#catalogo" onclick="filterCat('miel')">Miel Artesanal</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Cortes Destacados</h5>
+      <ul>
+        <li><a href="#">Rack Francés</a></li>
+        <li><a href="#">Rack Chops</a></li>
+        <li><a href="#">T-Bone</a></li>
+        <li><a href="#">Osobuco</a></li>
+        <li><a href="#">Hamburguesas</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contacto</h5>
+      <ul>
+        <li><a href="#" onclick="openCart()">Ver mi carrito</a></li>
+        <li><a href="#catalogo">Catálogo completo</a></li>
+        <li><a href="#recetas">Recetas</a></li>
+        <li><a href="#nosotros">Nuestra historia</a></li>
+        <li><a href="mailto:pedidos@ranchobienamaado.com">Correo electrónico</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Rancho Bien Amado. Todos los derechos reservados.</p>
+    <p>Hecho con ♥ en México</p>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <div>
+      <div class="cart-head-title">🛒 Tu Pedido</div>
+      <div class="cart-head-sub" id="cartHeadSub">El carrito está vacío</div>
+    </div>
+    <button class="cart-close" onclick="closeCart()" aria-label="Cerrar carrito">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <div><strong>Carrito vacío</strong><p>Agrega productos desde el catálogo para armar tu pedido.</p></div>
+      <button onclick="closeCart();document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})" style="background:var(--green);color:#fff;border:none;padding:10px 22px;border-radius:var(--radius-sm);font-family:var(--font-head);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">Ver Catálogo</button>
+    </div>
+  </div>
+  <div class="cart-notes-wrap" id="cartNotesWrap" style="display:none;">
+    <div class="cart-notes-label">Notas del pedido (opcional)</div>
+    <textarea class="cart-notes" id="cartNotes" rows="2" placeholder="Ej: ¿Tienen disponibilidad esta semana? ¿Hacen envíos a Monterrey?"></textarea>
+  </div>
+  <div class="cart-foot">
+    <div class="cart-summary" id="cartSummary" style="display:none;">
+      <div class="cart-count-line">
+        <span>Productos en el pedido</span>
+        <strong id="cartTotalItems">0 artículos</strong>
+      </div>
+      <div class="cart-count-line">
+        <span>Subtotal</span>
+        <strong id="cartSubtotalAmount">$0</strong>
+      </div>
+      <div class="cart-count-line" style="margin-top:4px;">
+        <span>Total estimado</span>
+        <strong id="cartTotalAmount">$0</strong>
+      </div>
+    </div>
+    <button class="btn-whatsapp" id="btnWhatsapp" onclick="sendToWhatsApp()" disabled>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Enviar Pedido por WhatsApp
+    </button>
+    <button class="btn-clear-cart" id="btnClear" onclick="clearCart()" style="display:none;">Vaciar carrito</button>
+  </div>
+</div>
+
+<!-- Floating cart -->
+<button class="cart-fab" onclick="openCart()" aria-label="Abrir carrito" id="cartFab">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+  <span class="cart-badge" id="cartBadge">0</span>
+</button>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // ══════════════════════════════════════════
+  //  PRODUCTS
+  // ══════════════════════════════════════════
+  const PRODUCTS = [
+    { id:1,  cat:'borrego',        emoji:'🥩', name:'Rack Chops',             price: 875, desc:'Costillas individuales de cordero, jugosas y tiernas. Ideales a la parrilla o al horno.',                                   img:'catalogoimagenes/rackchops.png',      badge:'Popular',           badgeColor:'#2E5E1E' },
+    { id:2,  cat:'borrego',        emoji:'🥩', name:'Rack Francés',            price: 875, desc:'Costillar con hueso limpio estilo francés. El corte estrella para fine dining.',                                              img:'catalogoimagenes/Rackfrances.png',    badge:'Estrella',          badgeColor:'#C4552A' },
+    { id:3,  cat:'borrego',        emoji:'🥩', name:'Forequarter',             price: 860, desc:'Cuarto delantero completo. Perfecto para cocción lenta, estofados y barbacoa.',                                               img:'catalogoimagenes/Forequarter.png' },
+    { id:4,  cat:'borrego',        emoji:'🥩', name:'T-Bone de Cordero',       price: 500, desc:'Corte premium con filete y lomo separados por el hueso. Intenso sabor a campo.',                                             img:'catalogoimagenes/T-Bone.png' },
+    { id:5,  cat:'borrego',        emoji:'🥩', name:'Osobuco',                 price: 437, desc:'Osobuco de cordero, corte con tuétano para guisos gourmet de cocción prolongada.',                                           img:'catalogoimagenes/Osobuco.png' },
+    { id:6,  cat:'borrego',        emoji:'🥩', name:'Medallón de Pierna',      price: 470, desc:'Rodajas gruesas de pierna. Corte versátil para asar, guisar o marinar.',                                                     img:'catalogoimagenes/Medallondepierna.png' },
+    { id:7,  cat:'borrego',        emoji:'🥩', name:'Pierna en Cubos',         price: 470, desc:'Pierna deshuesada en cubos. Lista para brochetas, guisos o birria artesanal.',                                               img:'catalogoimagenes/piernaencubos.png' },
+    { id:9,  cat:'borrego',        emoji:'🌭', name:'Chorizo de Cordero',      price: 470, desc:'Embutido artesanal con especias naturales. Sin conservadores. Sabor único.',                                                  img:'catalogoimagenes/Chorizo.png' },
+    { id:10, cat:'borrego',        emoji:'🥩', name:'Gaoneras',                price: 235, desc:'Corte tipo "bistec" de paleta, delgado y sabroso. Ideal para asados rápidos.',                                               img:'catalogoimagenes/gaoneras.png',       badge:'500g',             badgeColor:'#C89B2A' },
+    { id:18, cat:'hamburguesas',   emoji:'🍔', name:'Hamburguesa de 500g',     price: 235, desc:'Carne de cordero sazonada con especias del rancho. Jugosa, compacta y lista para parrilla o plancha.',                       img:'catalogoimagenes/Hamburguesa.png',    badge:'600g',           badgeColor:'#2E5E1E' },
+    { id:19, cat:'hamburguesas',   emoji:'🍔', name:'Hamburguesa de 600g',     price: 285, desc:'Versión artesanal con perfil más especiado y sabor ahumado. Ideal para pedido por caja o mayoreo.',                          img:'catalogoimagenes/Hamburguesa.png',    badge:'Nueva',             badgeColor:'#C4552A' },
+    { id:11, cat:'vinagres',       emoji:'🍶', name:'Vinagre de Manzana',      price: 130, desc:'Fermentado en pequeños lotes. Acidez equilibrada, notas frutales. Con madre activa, sin pasteurizar.',                       img:'catalogoimagenes/manzana.png',        badge:'Sin pasteurizar',   badgeColor:'#2E5E1E' },
+    { id:12, cat:'vinagres',       emoji:'🍶', name:'Vinagre de Pera',         price: 140, desc:'Suave y aromático, con dulzor natural de la fruta. Excelente en aderezos y marinadas.',                                      img:'catalogoimagenes/pera.png' },
+    { id:13, cat:'vinagres',       emoji:'🌿', name:'Vinagre de Albahaca',     price: 160, desc:'Acidez herbal única con aroma intenso a albahaca fresca. Favorito de los chefs.',                                            img:'catalogoimagenes/albahaca1.png' },
+    { id:14, cat:'fermentos',      emoji:'🧪', name:'Kombucha',                price: 30,  desc:'Té fermentado vivo, cargado de probióticos naturales. Refrescante y benéfico para la microbiota.',                           img:'catalogoimagenes/kombucha.png' },
+    { id:15, cat:'fermentos',      emoji:'🥛', name:'Kéfir Líquido',           price: 40, desc:'Leche fermentada con granos de kéfir. Rica en probióticos vivos, perfecta para beber.',                                      img:'catalogoimagenes/kefir.png',          badge:'Probiótico',        badgeColor:'#2E5E1E' },
+    { id:16, cat:'fermentos',      emoji:'🥛', name:'Kéfir Untable',           price: 80, desc:'Kéfir drenado de textura cremosa, similar al yogurt griego. Ideal para untar o cocinar.',                                    img:'catalogoimagenes/kefiruntable.png' },
+    { id:20, cat:'kombucha-negro', emoji:'🧪', name:'Kombucha de Té Negro',    price: 30, desc:'Fermentación de té negro con perfil más profundo y notas tostadas. Burbuja fina, sabor elegante y equilibrado.',            img:'catalogoimagenes/tenegro.png',        badge:'Té Negro',          badgeColor:'#C89B2A' },
+    { id:17, cat:'miel',           emoji:'🍯', name:'Miel Multifloral',        price: 120, desc:'Cosecha limitada de colmenas en praderas silvestres. Cruda, sin filtrar. Cada frasco refleja la temporada.',                 img:'catalogoimagenes/miel.jpeg',          badge:'Cosecha Limitada',  badgeColor:'#C89B2A' },
+    // Packs — con 2 imágenes para el slideshow (pon tus propias fotos aquí)
+    { id:21, cat:'packs', emoji:'🎁', name:'Pack de 6 Kombuchas', price: 120, desc:'Pack ideal para surtir tu semana. Puedes pedirlo de un solo sabor o mixto, según disponibilidad.', imgs:['catalogoimagenes/mix.jpg','catalogoimagenes/kombuchapack.jpg'], badge:'Pack', badgeColor:'#C4552A' },
+    { id:22, cat:'packs', emoji:'🎁', name:'Pack de 6 Kéfir',     price: 180, desc:'Seis botellas o frascos de kéfir para consumo frecuente. Un solo sabor o variedad disponible.',     imgs:['catalogoimagenes/kefir6.png','catalogoimagenes/kefir6.png'], badge:'Pack', badgeColor:'#2E5E1E' },
+    { id:23, cat:'packs', emoji:'🎁', name:'Pack de 3 Vinagres',   price: 380, desc:'Tres vinagres artesanales para cata, cocina o regalo. Elige sabor o déjanos surtirte la selección.', imgs:['catalogoimagenes/vinagress.jpg','catalogoimagenes/3vina.jpg'], badge:'Pack', badgeColor:'#C89B2A' },
+  ];
+
+  // ══════════════════════════════════════════
+  //  CART STATE
+  // ══════════════════════════════════════════
+  let cart = {};
+
+  // ══════════════════════════════════════════
+  //  RENDER PRODUCTS
+  // ══════════════════════════════════════════
+  function renderProducts() {
+    const grid = document.getElementById('productsGrid');
+    grid.innerHTML = '';
+    PRODUCTS.forEach(p => {
+      const inCart = cart[p.id] > 0;
+      const div = document.createElement('div');
+      div.className = 'product-card fi';
+      div.dataset.cat = p.cat;
+      div.id = 'pc-' + p.id;
+
+      // Imagen: slideshow si tiene imgs[], normal si tiene img
+      let imgHtml = '';
+      if (p.imgs && p.imgs.length > 1) {
+        const slides = p.imgs.map((src, i) =>
+          `<div class="pc-slide ${i===0?'active':''}" data-idx="${i}"><img src="${src}" alt="${p.name}" loading="lazy"/></div>`
+        ).join('');
+        const dots = p.imgs.map((_, i) =>
+          `<button class="pc-dot ${i===0?'active':''}" onclick="goSlide(${p.id},${i})" aria-label="Imagen ${i+1}"></button>`
+        ).join('');
+        imgHtml = `<div class="pc-slideshow" id="ss-${p.id}">
+          ${slides}
+          <div class="pc-slide-dots">${dots}</div>
+          ${p.badge ? `<div class="pc-badge" style="background:${p.badgeColor};position:absolute;top:12px;left:12px;z-index:3;">${p.badge}</div>` : ''}
+        </div>`;
+      } else {
+        const src = p.img || '';
+        imgHtml = `<div class="pc-img">
+          <img src="${src}" alt="${p.name}" loading="lazy"/>
+          ${p.badge ? `<div class="pc-badge" style="background:${p.badgeColor}">${p.badge}</div>` : ''}
+        </div>`;
+      }
+
+      div.innerHTML = `
+        ${imgHtml}
+        <div class="pc-body">
+          <div class="pc-cat">${getCatLabel(p.cat)}</div>
+          <div class="pc-name">${p.emoji} ${p.name}</div>
+          <div class="pc-desc">${p.desc}</div>
+          <div class="pc-footer">
+            <div class="pc-price">${formatMoney(p.price)}</div>
+            <button class="btn-add ${inCart?'added':''}" onclick="addToCart(${p.id})" id="btn-${p.id}">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              ${inCart?'Agregado ✓':'Agregar'}
+            </button>
+          </div>
+        </div>
+      `;
+      grid.appendChild(div);
+    });
+    setTimeout(() => {
+      document.querySelectorAll('#productsGrid .fi').forEach(el => el.classList.add('v'));
+    }, 50);
+  }
+
+  function getCatLabel(cat) {
+    return {
+      borrego:'🥩 Carne de Borrego', hamburguesas:'🍔 Hamburguesas',
+      vinagres:'🍶 Vinagres Artesanales', fermentos:'🧪 Fermentos Naturales',
+      'kombucha-negro':'🍵 Kombucha de Té Negro', miel:'🍯 Miel Artesanal',
+      packs:'🎁 Packs Especiales'
+    }[cat] || cat;
+  }
+
+  function formatMoney(value) {
+    return new Intl.NumberFormat('es-MX', {
+      style: 'currency',
+      currency: 'MXN',
+      maximumFractionDigits: 0,
+    }).format(value || 0);
+  }
+
+  // ══════════════════════════════════════════
+  //  FILTER
+  // ══════════════════════════════════════════
+  function filterCat(cat) {
+    document.querySelectorAll('.cat-filter').forEach(b => {
+      b.classList.toggle('active', b.dataset.cat === cat);
+    });
+    document.querySelectorAll('#productsGrid .product-card').forEach(card => {
+      card.classList.toggle('hidden', cat !== 'all' && card.dataset.cat !== cat);
+    });
+  }
+
+  // ══════════════════════════════════════════
+  //  PACK SLIDESHOW
+  // ══════════════════════════════════════════
+  const slideState = {};
+
+  function goSlide(pid, idx) {
+    const ss = document.getElementById('ss-' + pid);
+    if (!ss) return;
+    ss.querySelectorAll('.pc-slide').forEach((s, i) => s.classList.toggle('active', i === idx));
+    ss.querySelectorAll('.pc-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+    slideState[pid] = idx;
+  }
+
+  function startSlideshows() {
+    PRODUCTS.forEach(p => {
+      if (!p.imgs || p.imgs.length < 2) return;
+      slideState[p.id] = 0;
+      setInterval(() => {
+        const next = ((slideState[p.id] || 0) + 1) % p.imgs.length;
+        goSlide(p.id, next);
+      }, 5000);
+    });
+  }
+
+  // ══════════════════════════════════════════
+  //  RECIPE TABS
+  // ══════════════════════════════════════════
+  const TAB_IDS = ['kefir-liq', 'kombucha', 'kefir-unt', 'vinagres'];
+
+  function showRecipeTab(tab) {
+    document.querySelectorAll('.recipe-tab').forEach((b, i) => {
+      b.classList.toggle('active', TAB_IDS[i] === tab);
+    });
+    document.querySelectorAll('.recipe-panel').forEach(p => p.classList.remove('active'));
+    const panel = document.getElementById('tab-' + tab);
+    if (panel) {
+      panel.classList.add('active');
+      panel.querySelectorAll('.fi:not(.v)').forEach(el => el.classList.add('v'));
+    }
+  }
+
+  // ══════════════════════════════════════════
+  //  CART LOGIC
+  // ══════════════════════════════════════════
+  function addToCart(id) {
+    cart[id] = (cart[id] || 0) + 1;
+    updateAddBtn(id);
+    updateCartUI();
+    const p = PRODUCTS.find(x => x.id === id);
+    showToast(`${p.emoji} ${p.name} agregado al carrito`);
+    const fab = document.getElementById('cartFab');
+    fab.classList.remove('cart-fab-pulse');
+    void fab.offsetWidth;
+    fab.classList.add('cart-fab-pulse');
+  }
+
+  function updateQty(id, delta) {
+    cart[id] = (cart[id] || 0) + delta;
+    if (cart[id] <= 0) delete cart[id];
+    updateAddBtn(id);
+    updateCartUI();
+    renderCartItems();
+  }
+
+  function removeFromCart(id) {
+    delete cart[id];
+    updateAddBtn(id);
+    updateCartUI();
+    renderCartItems();
+  }
+
+  function clearCart() {
+    cart = {};
+    document.querySelectorAll('.btn-add').forEach(b => {
+      b.classList.remove('added');
+      b.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Agregar`;
+    });
+    updateCartUI();
+    renderCartItems();
+  }
+
+  function updateAddBtn(id) {
+    const btn = document.getElementById('btn-' + id);
+    if (!btn) return;
+    const inCart = cart[id] > 0;
+    btn.className = 'btn-add' + (inCart ? ' added' : '');
+    btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>${inCart ? 'Agregado ✓' : 'Agregar'}`;
+  }
+
+  function updateCartUI() {
+    const total = Object.values(cart).reduce((a, b) => a + b, 0);
+    const hasItems = total > 0;
+    const cartTotals = getCartTotals();
+    const badge = document.getElementById('cartBadge');
+    badge.textContent = total;
+    badge.classList.toggle('visible', hasItems);
+    document.getElementById('navCartCount').textContent = total;
+    document.getElementById('mobCartCount').textContent = total;
+    document.getElementById('cartHeadSub').textContent = hasItems
+      ? `${total} ${total === 1 ? 'artículo' : 'artículos'} en tu pedido`
+      : 'El carrito está vacío';
+    document.getElementById('cartSummary').style.display = hasItems ? 'block' : 'none';
+    document.getElementById('cartNotesWrap').style.display = hasItems ? 'block' : 'none';
+    document.getElementById('btnClear').style.display = hasItems ? 'block' : 'none';
+    document.getElementById('btnWhatsapp').disabled = !hasItems;
+    document.getElementById('cartTotalItems').textContent = `${total} ${total === 1 ? 'artículo' : 'artículos'}`;
+    document.getElementById('cartTotalAmount').textContent = formatMoney(cartTotals.totalAmount);
+    document.getElementById('cartSubtotalAmount').textContent = formatMoney(cartTotals.subtotalAmount);
+  }
+
+  function getCartTotals() {
+    const items = Object.entries(cart).map(([idStr, qty]) => {
+      const product = PRODUCTS.find(x => x.id === parseInt(idStr));
+      if (!product) return null;
+      const lineTotal = (product.price || 0) * qty;
+      return { product, qty, lineTotal };
+    }).filter(Boolean);
+    const subtotalAmount = items.reduce((sum, item) => sum + item.lineTotal, 0);
+    return { items, subtotalAmount, totalAmount: subtotalAmount };
+  }
+
+  function renderCartItems() {
+    const container = document.getElementById('cartItems');
+    const empty = document.getElementById('cartEmpty');
+    const hasItems = Object.keys(cart).length > 0;
+    container.querySelectorAll('.cart-item').forEach(el => el.remove());
+    if (!hasItems) { empty.style.display = 'flex'; return; }
+    empty.style.display = 'none';
+    Object.entries(cart).forEach(([idStr, qty]) => {
+      const id = parseInt(idStr);
+      const p = PRODUCTS.find(x => x.id === id);
+      if (!p) return;
+      const item = document.createElement('div');
+      item.className = 'cart-item';
+      item.id = 'ci-' + id;
+      const lineTotal = (p.price || 0) * qty;
+      item.innerHTML = `
+        <div class="cart-item-emoji">${p.emoji}</div>
+        <div class="cart-item-info">
+          <div class="cart-item-cat">${getCatLabel(p.cat)}</div>
+          <div class="cart-item-name">${p.name}</div>
+          <div style="font-size:12px;color:var(--green);font-weight:700;margin-top:2px;">${formatMoney(p.price)} c/u · ${formatMoney(lineTotal)} total</div>
+          <div class="cart-item-controls">
+            <button class="qty-btn minus" onclick="updateQty(${id},-1)" aria-label="Quitar uno">−</button>
+            <span class="qty-display">${qty}</span>
+            <button class="qty-btn" onclick="updateQty(${id},1)" aria-label="Agregar uno">+</button>
+          </div>
+        </div>
+        <button class="cart-item-del" onclick="removeFromCart(${id})" aria-label="Eliminar">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+        </button>
+      `;
+      container.appendChild(item);
+    });
+  }
+
+  // ══════════════════════════════════════════
+  //  WHATSAPP
+  // ══════════════════════════════════════════
+  function sendToWhatsApp() {
+    if (Object.keys(cart).length === 0) return;
+    const lines = ['🌿 *PEDIDO — Rancho Bien Amado*', '', 'Hola, me interesan los siguientes productos:', ''];
+    const totals = getCartTotals();
+    const bycat = {};
+    Object.entries(cart).forEach(([idStr, qty]) => {
+      const p = PRODUCTS.find(x => x.id === parseInt(idStr));
+      if (!p) return;
+      if (!bycat[p.cat]) bycat[p.cat] = [];
+      bycat[p.cat].push({ name: p.name, emoji: p.emoji, qty });
+    });
+    const catNames = { borrego:'Carne de Borrego', hamburguesas:'Hamburguesas', vinagres:'Vinagres Artesanales', fermentos:'Fermentos Naturales', 'kombucha-negro':'Kombucha de Té Negro', miel:' Miel Artesanal', packs:'Packs Especiales' };
+    Object.entries(bycat).forEach(([cat, items]) => {
+      lines.push(`*${catNames[cat]}*`);
+      items.forEach(it => lines.push(`  • ${it.emoji} ${it.name} — cantidad: ${it.qty}`));
+      lines.push('');
+    });
+    const notes = document.getElementById('cartNotes').value.trim();
+    if (notes) { lines.push('📝 *Notas adicionales:*'); lines.push(notes); lines.push(''); }
+    lines.push(`Subtotal estimado: ${formatMoney(totals.subtotalAmount)}`);
+    lines.push(`Total estimado: ${formatMoney(totals.totalAmount)}`);
+    lines.push('');
+    lines.push('Por favor confírmenme disponibilidad y el total final. ¡Gracias! 🙏');
+    const phone = '527736801583'; // ← tu número
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
+  }
+
+  // ══════════════════════════════════════════
+  //  DRAWER
+  // ══════════════════════════════════════════
+  function openCart() {
+    renderCartItems();
+    document.getElementById('cartOverlay').classList.add('open');
+    document.getElementById('cartDrawer').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCart() {
+    document.getElementById('cartOverlay').classList.remove('open');
+    document.getElementById('cartDrawer').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ══════════════════════════════════════════
+  //  TOAST
+  // ══════════════════════════════════════════
+  let toastTimer;
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  // ══════════════════════════════════════════
+  //  NAV / MISC
+  // ══════════════════════════════════════════
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+  window.addEventListener('load', () => {
+    document.getElementById('heroBg').classList.add('loaded');
+  });
+  function toggleDrop(id) {
+    const el = document.getElementById(id);
+    const open = el.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+    if (!open) el.classList.add('open');
+  }
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.nav-dropdown'))
+      document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+  });
+  function toggleMob() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+  function closeMob() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); observer.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+  document.querySelectorAll('.fi').forEach(el => observer.observe(el));
+
+  // ── INIT ──
+  renderProducts();
+  updateCartUI();
+  startSlideshows();
+
+  setTimeout(() => {
+    document.querySelectorAll('#productsGrid .fi:not(.v)').forEach(el => observer.observe(el));
+  }, 100);
+</script>
+</body>
+</html>
