@@ -76,7 +76,7 @@
 
     /* ── HERO ── */
     .hero { position: relative; height: 100vh; min-height: 580px; display: flex; align-items: flex-end; overflow: hidden; }
-    .hero-bg { position: absolute; inset: 0; background-image: url('catalogoimagenes/rancho.jpg'); background-size: cover; background-position: center; transform: scale(1.04); transition: transform 8s ease-out; }
+    .hero-bg { position: absolute; inset: 0; background-image: url('imagenes/rancho.jpg'); background-size: cover; background-position: center; transform: scale(1.04); transition: transform 8s ease-out; }
     .hero-bg.loaded { transform: scale(1); }
     .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(28,43,24,0.93) 0%, rgba(28,43,24,0.48) 45%, rgba(28,43,24,0.12) 100%); }
     .hero-content { position: relative; z-index: 2; padding: 0 80px 76px; max-width: 780px; }
@@ -296,7 +296,8 @@
       nav { height: 64px; padding: 0 12px; gap: 10px; }
       .nav-logo { gap: 8px; min-width: 0; }
       .nav-logo-img { width: 52px; height: 52px; }
-      .nav-logo-text { display: none !important; }
+      .nav-logo-text { display: block !important; font-size: 12px; letter-spacing: 0.05em; line-height: 1.05; }
+      .nav-logo-text span { font-size: 8px; letter-spacing: 0.12em; }
       .nav-links { display: none !important; }
       .hamburger { display: flex !important; }
       .dropdown-panel { display: none !important; }
@@ -317,7 +318,7 @@
 <!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-logo">
-    <img src="catalogoimagenes/logo.png" alt="Logo Rancho El Bien Amado" class="nav-logo-img" loading="lazy" />
+    <img src="imagenes/logo.png" alt="Logo Rancho El Bien Amado" class="nav-logo-img" loading="lazy" />
     <div class="nav-logo-text">Rancho El Bien Amado<span>Productos Artesanales</span></div>
   </a>
   <ul class="nav-links" style="list-style:none;display:flex;align-items:center;gap:32px;">
@@ -470,7 +471,7 @@
 <section id="nosotros" style="padding:88px 80px;">
   <div class="about fi">
     <div class="about-img">
-      <img src="catalogoimagenes/nosotros.jpg" alt="Rancho Bien Amado al amanecer" loading="lazy"/>
+      <img src="imagenes/nosotros.jpg" alt="Rancho Bien Amado al amanecer" loading="lazy"/>
       <div class="about-badge"><div class="about-badge-n">15+</div><div class="about-badge-t">Años de tradición</div></div>
     </div>
     <div class="about-content">
@@ -540,7 +541,7 @@
         </div>
         <div class="recipe-visual">
           <div class="recipe-visual-frame">
-            <img src="catalogoimagenes/platano.jpg" alt="Licuado de Kéfir con plátano y canela" loading="lazy" />
+            <img src="imagenes/platano.jpg" alt="Licuado de Kéfir con plátano y canela" loading="lazy" />
           </div>
         </div>
       </div>
@@ -562,7 +563,7 @@
         </div>
         <div class="recipe-visual">
           <div class="recipe-visual-frame">
-            <img src="catalogoimagenes/fresa.jpg" alt="Agua fresca de Kéfir con fresa" loading="lazy" />
+            <img src="imagenes/fresa.jpg" alt="Agua fresca de Kéfir con fresa" loading="lazy" />
           </div>
         </div>
       </div>
@@ -584,7 +585,7 @@
         </div>
         <div class="recipe-visual">
           <div class="recipe-visual-frame">
-            <img src="catalogoimagenes/manzanak.jpg" alt="Kéfir con avena y fruta" loading="lazy" />
+            <img src="imagenes/manzanak.jpg" alt="Kéfir con avena y fruta" loading="lazy" />
           </div>
         </div>
       </div>
@@ -610,7 +611,7 @@
         </div>
         <div class="recipe-visual">
           <div class="recipe-visual-frame">
-            <img src="catalogoimagenes/hierva.jpg" alt="Kombucha con limón y hierbabuena" loading="lazy" />
+            <img src="imagenes/hierva.jpg" alt="Kombucha con limón y hierbabuena" loading="lazy" />
           </div>
         </div>
       </div>
@@ -632,7 +633,7 @@
         </div>
         <div class="recipe-visual">
           <div class="recipe-visual-frame">
-            <img src="catalogoimagenes/frutos.jpg" alt="Paleta de Kombucha con frutos rojos" loading="lazy" />
+            <img src="imagenes/frutos.jpg" alt="Paleta de Kombucha con frutos rojos" loading="lazy" />
           </div>
         </div>
       </div>
@@ -654,7 +655,7 @@
         </div>
         <div class="recipe-visual">
           <div class="recipe-visual-frame">
-            <img src="catalogoimagenes/coctel.jpg" alt="(Cóctel sin alcohol de Kombucha tropical)" loading="lazy" />
+            <img src="imagenes/coctel.jpg" alt="(Cóctel sin alcohol de Kombucha tropical)" loading="lazy" />
           </div>
         </div>
       </div>
@@ -680,7 +681,7 @@
         </div>
         <div class="recipe-visual">
           <div class="recipe-visual-frame">
-            <img src="catalogoimagenes/tostada.jpg" alt="Tostadas con kéfir untable y aguacate" loading="lazy" />
+            <img src="imagenes/tostada.jpg" alt="Tostadas con kéfir untable y aguacate" loading="lazy" />
           </div>
         </div>
       </div>
@@ -702,7 +703,7 @@
         </div>
         <div class="recipe-visual">
           <div class="recipe-visual-frame">
-            <img src="catalogoimagenes/panmiel.jpg" alt="Pan artesanal con kéfir untable y miel" loading="lazy" />
+            <img src="imagenes/panmiel.jpg" alt="Pan artesanal con kéfir untable y miel" loading="lazy" />
           </div>
         </div>
       </div>
@@ -724,7 +725,7 @@
         </div>
         <div class="recipe-visual">
           <div class="recipe-visual-frame">
-            <img src="catalogoimagenes/cilandro.jpg" alt="kéfir untable con hierbas" loading="lazy" />
+            <img src="imagenes/cilandro.jpg" alt="kéfir untable con hierbas" loading="lazy" />
           </div>
         </div>
       </div>
@@ -750,7 +751,7 @@
         </div>
         <div class="recipe-visual">
           <div class="recipe-visual-frame">
-            <img src="catalogoimagenes/pepino.jpg" alt="Ensalada fresca con vinagre artesanal de manzana" loading="lazy" />
+            <img src="imagenes/pepino.jpg" alt="Ensalada fresca con vinagre artesanal de manzana" loading="lazy" />
           </div>
         </div>
       </div>
@@ -772,7 +773,7 @@
         </div>
         <div class="recipe-visual">
           <div class="recipe-visual-frame">
-            <img src="catalogoimagenes/pollo.jpg" alt="Pollo al sartén con vinagre de pera" loading="lazy" />
+            <img src="imagenes/pollo.jpg" alt="Pollo al sartén con vinagre de pera" loading="lazy" />
           </div>
         </div>
       </div>
@@ -794,7 +795,7 @@
         </div>
         <div class="recipe-visual">
           <div class="recipe-visual-frame">
-            <img src="catalogoimagenes/salsa.jpg" alt="Marinada de Albahaca para Cordero" loading="lazy" />
+            <img src="imagenes/salsa.jpg" alt="Marinada de Albahaca para Cordero" loading="lazy" />
           </div>
         </div>
       </div>
@@ -828,7 +829,7 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <div style="display:flex;align-items:center;gap:11px;">
-        <img src="catalogoimagenes/logo.png" alt="Logo Rancho Bien Amado" class="footer-logo-img" loading="lazy" />
+        <img src="imagenes/logo.png" alt="Logo Rancho Bien Amado" class="footer-logo-img" loading="lazy" />
         <div class="footer-brand-txt">Rancho Bien Amado<span>Productos Artesanales</span></div>
       </div>
       <p>Del campo a tu mesa, con honestidad. Productos naturales de alta calidad, elaborados con respeto por la tierra y tradición generacional.</p>
@@ -939,29 +940,29 @@
   //  PRODUCTS
   // ══════════════════════════════════════════
   const PRODUCTS = [
-    { id:1,  cat:'borrego',        emoji:'🥩', name:'Rack Chops',             price: 875, desc:'Costillas individuales de cordero, jugosas y tiernas. Ideales a la parrilla o al horno.',                                   img:'catalogoimagenes/rackchops.png',      badge:'Popular',           badgeColor:'#2E5E1E' },
-    { id:2,  cat:'borrego',        emoji:'🥩', name:'Rack Francés',            price: 875, desc:'Costillar con hueso limpio estilo francés. El corte estrella para fine dining.',                                              img:'catalogoimagenes/Rackfrances.png',    badge:'Estrella',          badgeColor:'#C4552A' },
-    { id:3,  cat:'borrego',        emoji:'🥩', name:'Forequarter',             price: 860, desc:'Cuarto delantero completo. Perfecto para cocción lenta, estofados y barbacoa.',                                               img:'catalogoimagenes/Forequarter.png' },
-    { id:4,  cat:'borrego',        emoji:'🥩', name:'T-Bone de Cordero',       price: 500, desc:'Corte premium con filete y lomo separados por el hueso. Intenso sabor a campo.',                                             img:'catalogoimagenes/T-Bone.png' },
-    { id:5,  cat:'borrego',        emoji:'🥩', name:'Osobuco',                 price: 437, desc:'Osobuco de cordero, corte con tuétano para guisos gourmet de cocción prolongada.',                                           img:'catalogoimagenes/Osobuco.png' },
-    { id:6,  cat:'borrego',        emoji:'🥩', name:'Medallón de Pierna',      price: 470, desc:'Rodajas gruesas de pierna. Corte versátil para asar, guisar o marinar.',                                                     img:'catalogoimagenes/Medallondepierna.png' },
-    { id:7,  cat:'borrego',        emoji:'🥩', name:'Pierna en Cubos',         price: 470, desc:'Pierna deshuesada en cubos. Lista para brochetas, guisos o birria artesanal.',                                               img:'catalogoimagenes/piernaencubos.png' },
-    { id:9,  cat:'borrego',        emoji:'🌭', name:'Chorizo de Cordero',      price: 470, desc:'Embutido artesanal con especias naturales. Sin conservadores. Sabor único.',                                                  img:'catalogoimagenes/Chorizo.png' },
-    { id:10, cat:'borrego',        emoji:'🥩', name:'Gaoneras',                price: 235, desc:'Corte tipo "bistec" de paleta, delgado y sabroso. Ideal para asados rápidos.',                                               img:'catalogoimagenes/gaoneras.png',       badge:'500g',             badgeColor:'#C89B2A' },
-    { id:18, cat:'hamburguesas',   emoji:'🍔', name:'Hamburguesa de 500g',     price: 235, desc:'Carne de cordero sazonada con especias del rancho. Jugosa, compacta y lista para parrilla o plancha.',                       img:'catalogoimagenes/Hamburguesa.png',    badge:'600g',           badgeColor:'#2E5E1E' },
-    { id:19, cat:'hamburguesas',   emoji:'🍔', name:'Hamburguesa de 600g',     price: 285, desc:'Versión artesanal con perfil más especiado y sabor ahumado. Ideal para pedido por caja o mayoreo.',                          img:'catalogoimagenes/Hamburguesa.png',    badge:'Nueva',             badgeColor:'#C4552A' },
-    { id:11, cat:'vinagres',       emoji:'🍶', name:'Vinagre de Manzana',      price: 130, desc:'Fermentado en pequeños lotes. Acidez equilibrada, notas frutales. Con madre activa, sin pasteurizar.',                       img:'catalogoimagenes/manzana.png',        badge:'Sin pasteurizar',   badgeColor:'#2E5E1E' },
-    { id:12, cat:'vinagres',       emoji:'🍶', name:'Vinagre de Pera',         price: 140, desc:'Suave y aromático, con dulzor natural de la fruta. Excelente en aderezos y marinadas.',                                      img:'catalogoimagenes/pera.png' },
-    { id:13, cat:'vinagres',       emoji:'🌿', name:'Vinagre de Albahaca',     price: 160, desc:'Acidez herbal única con aroma intenso a albahaca fresca. Favorito de los chefs.',                                            img:'catalogoimagenes/albahaca1.png' },
-    { id:14, cat:'fermentos',      emoji:'🧪', name:'Kombucha',                price: 30,  desc:'Té fermentado vivo, cargado de probióticos naturales. Refrescante y benéfico para la microbiota.',                           img:'catalogoimagenes/kombucha.png' },
-    { id:15, cat:'fermentos',      emoji:'🥛', name:'Kéfir Líquido',           price: 40, desc:'Leche fermentada con granos de kéfir. Rica en probióticos vivos, perfecta para beber.',                                      img:'catalogoimagenes/kefir.png',          badge:'Probiótico',        badgeColor:'#2E5E1E' },
-    { id:16, cat:'fermentos',      emoji:'🥛', name:'Kéfir Untable',           price: 80, desc:'Kéfir drenado de textura cremosa, similar al yogurt griego. Ideal para untar o cocinar.',                                    img:'catalogoimagenes/kefiruntable.png' },
-    { id:20, cat:'kombucha-negro', emoji:'🧪', name:'Kombucha de Té Negro',    price: 30, desc:'Fermentación de té negro con perfil más profundo y notas tostadas. Burbuja fina, sabor elegante y equilibrado.',            img:'catalogoimagenes/tenegro.png',        badge:'Té Negro',          badgeColor:'#C89B2A' },
-    { id:17, cat:'miel',           emoji:'🍯', name:'Miel Multifloral',        price: 120, desc:'Cosecha limitada de colmenas en praderas silvestres. Cruda, sin filtrar. Cada frasco refleja la temporada.',                 img:'catalogoimagenes/miel.jpeg',          badge:'Cosecha Limitada',  badgeColor:'#C89B2A' },
+    { id:1,  cat:'borrego',        emoji:'🥩', name:'Rack Chops',             price: 875, desc:'Costillas individuales de cordero, jugosas y tiernas. Ideales a la parrilla o al horno.',                                   img:'imagenes/rackchops.png',      badge:'Popular',           badgeColor:'#2E5E1E' },
+    { id:2,  cat:'borrego',        emoji:'🥩', name:'Rack Francés',            price: 875, desc:'Costillar con hueso limpio estilo francés. El corte estrella para fine dining.',                                              img:'imagenes/Rackfrances.png',    badge:'Estrella',          badgeColor:'#C4552A' },
+    { id:3,  cat:'borrego',        emoji:'🥩', name:'Forequarter',             price: 860, desc:'Cuarto delantero completo. Perfecto para cocción lenta, estofados y barbacoa.',                                               img:'imagenes/Forequarter.png' },
+    { id:4,  cat:'borrego',        emoji:'🥩', name:'T-Bone de Cordero',       price: 500, desc:'Corte premium con filete y lomo separados por el hueso. Intenso sabor a campo.',                                             img:'imagenes/T-Bone.png' },
+    { id:5,  cat:'borrego',        emoji:'🥩', name:'Osobuco',                 price: 437, desc:'Osobuco de cordero, corte con tuétano para guisos gourmet de cocción prolongada.',                                           img:'imagenes/Osobuco.png' },
+    { id:6,  cat:'borrego',        emoji:'🥩', name:'Medallón de Pierna',      price: 470, desc:'Rodajas gruesas de pierna. Corte versátil para asar, guisar o marinar.',                                                     img:'imagenes/Medallondepierna.png' },
+    { id:7,  cat:'borrego',        emoji:'🥩', name:'Pierna en Cubos',         price: 470, desc:'Pierna deshuesada en cubos. Lista para brochetas, guisos o birria artesanal.',                                               img:'imagenes/piernaencubos.png' },
+    { id:9,  cat:'borrego',        emoji:'🌭', name:'Chorizo de Cordero',      price: 470, desc:'Embutido artesanal con especias naturales. Sin conservadores. Sabor único.',                                                  img:'imagenes/Chorizo.png' },
+    { id:10, cat:'borrego',        emoji:'🥩', name:'Gaoneras',                price: 235, desc:'Corte tipo "bistec" de paleta, delgado y sabroso. Ideal para asados rápidos.',                                               img:'imagenes/gaoneras.png',       badge:'Nuevas',             badgeColor:'#C89B2A' },
+    { id:18, cat:'hamburguesas',   emoji:'🍔', name:'Hamburguesa de 500g',     price: 235, desc:'Carne de cordero sazonada con especias del rancho. Jugosa, compacta y lista para parrilla o plancha.',                       img:'imagenes/Hamburguesa.png',    badge:'500G',           badgeColor:'#2E5E1E' },
+    { id:19, cat:'hamburguesas',   emoji:'🍔', name:'Hamburguesa de 600g',     price: 285, desc:'Versión artesanal con perfil más especiado y sabor ahumado. Ideal para pedido por caja o mayoreo.',                          img:'imagenes/Hamburguesa.png',    badge:'600G',             badgeColor:'#C4552A' },
+    { id:11, cat:'vinagres',       emoji:'🍶', name:'Vinagre de Manzana',      price: 130, desc:'Fermentado en pequeños lotes. Acidez equilibrada, notas frutales. Con madre activa, sin pasteurizar.',                       img:'imagenes/manzana.png',        badge:'Sin pasteurizar',   badgeColor:'#2E5E1E' },
+    { id:12, cat:'vinagres',       emoji:'🍶', name:'Vinagre de Pera',         price: 140, desc:'Suave y aromático, con dulzor natural de la fruta. Excelente en aderezos y marinadas.',                                      img:'imagenes/pera.png' },
+    { id:13, cat:'vinagres',       emoji:'🌿', name:'Vinagre de Albahaca',     price: 160, desc:'Acidez herbal única con aroma intenso a albahaca fresca. Favorito de los chefs.',                                            img:'imagenes/albahaca1.png' },
+    { id:14, cat:'fermentos',      emoji:'🧪', name:'Kombucha',                price: 30,  desc:'Té fermentado vivo, cargado de probióticos naturales. Refrescante y benéfico para la microbiota.',                           img:'imagenes/kombucha.png' },
+    { id:15, cat:'fermentos',      emoji:'🥛', name:'Kéfir Líquido',           price: 40, desc:'Leche fermentada con granos de kéfir. Rica en probióticos vivos, perfecta para beber.',                                      img:'imagenes/kefir.png',          badge:'Probiótico',        badgeColor:'#2E5E1E' },
+    { id:16, cat:'fermentos',      emoji:'🥛', name:'Kéfir Untable',           price: 80, desc:'Kéfir drenado de textura cremosa, similar al yogurt griego. Ideal para untar o cocinar.',                                    img:'imagenes/kefiruntable.png' },
+    { id:20, cat:'kombucha-negro', emoji:'🧪', name:'Kombucha de Té Negro',    price: 30, desc:'Fermentación de té negro con perfil más profundo y notas tostadas. Burbuja fina, sabor elegante y equilibrado.',            img:'imagenes/tenegro.png',        badge:'Té Negro',          badgeColor:'#C89B2A' },
+    { id:17, cat:'miel',           emoji:'🍯', name:'Miel Multifloral',        price: 120, desc:'Cosecha limitada de colmenas en praderas silvestres. Cruda, sin filtrar. Cada frasco refleja la temporada.',                 img:'imagenes/miel.jpeg',          badge:'Cosecha Limitada',  badgeColor:'#C89B2A' },
     // Packs — con 2 imágenes para el slideshow (pon tus propias fotos aquí)
-    { id:21, cat:'packs', emoji:'🎁', name:'Pack de 6 Kombuchas', price: 120, desc:'Pack ideal para surtir tu semana. Puedes pedirlo de un solo sabor o mixto, según disponibilidad.', imgs:['catalogoimagenes/mix.jpg','catalogoimagenes/kombuchapack.jpg'], badge:'Pack', badgeColor:'#C4552A' },
-    { id:22, cat:'packs', emoji:'🎁', name:'Pack de 6 Kéfir',     price: 180, desc:'Seis botellas o frascos de kéfir para consumo frecuente. Un solo sabor o variedad disponible.',     imgs:['catalogoimagenes/kefir6.png','catalogoimagenes/kefir6.png'], badge:'Pack', badgeColor:'#2E5E1E' },
-    { id:23, cat:'packs', emoji:'🎁', name:'Pack de 3 Vinagres',   price: 380, desc:'Tres vinagres artesanales para cata, cocina o regalo. Elige sabor o déjanos surtirte la selección.', imgs:['catalogoimagenes/vinagress.jpg','catalogoimagenes/3vina.jpg'], badge:'Pack', badgeColor:'#C89B2A' },
+    { id:21, cat:'packs', emoji:'🎁', name:'Pack de 6 Kombuchas', price: 120, desc:'Pack ideal para surtir tu semana. Puedes pedirlo de un solo sabor o mixto, según disponibilidad.', imgs:['imagenes/mix.jpg','imagenes/kombuchapack.jpg'], badge:'Pack', badgeColor:'#C4552A' },
+    { id:22, cat:'packs', emoji:'🎁', name:'Pack de 6 Kéfir',     price: 180, desc:'Seis botellas o frascos de kéfir para consumo frecuente. Un solo sabor o variedad disponible.',     imgs:['imagenes/kefir6.png','imagenes/kefir6.png'], badge:'Pack', badgeColor:'#2E5E1E' },
+    { id:23, cat:'packs', emoji:'🎁', name:'Pack de 3 Vinagres',   price: 380, desc:'Tres vinagres artesanales para cata, cocina o regalo. Elige sabor o déjanos surtirte la selección.', imgs:['imagenes/vinagress.jpg','imagenes/3vina.jpg'], badge:'Pack', badgeColor:'#C89B2A' },
   ];
 
   // ══════════════════════════════════════════
