@@ -281,8 +281,8 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       nav { padding: 0 20px; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
+      .nav-links { display: none !important; }
+      .hamburger { display: flex !important; }
       section { padding: 64px 20px; }
       .hero-content { padding: 0 20px 60px; }
       .about { grid-template-columns: 1fr; gap: 40px; }
@@ -293,7 +293,14 @@
       .cart-drawer { width: 380px; }
     }
     @media (max-width: 640px) {
-      .products-grid { grid-template-columns: 1fr 1fr; }
+      nav { height: 64px; padding: 0 12px; gap: 10px; }
+      .nav-logo { gap: 8px; min-width: 0; }
+      .nav-logo-img { width: 52px; height: 52px; }
+      .nav-logo-text { display: none !important; }
+      .nav-links { display: none !important; }
+      .hamburger { display: flex !important; }
+      .dropdown-panel { display: none !important; }
+      .products-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .cta-section { padding: 56px 20px; }
       footer { padding: 44px 20px 22px; }
@@ -1277,10 +1284,15 @@
     if (!open) el.classList.add('open');
   }
   document.addEventListener('click', e => {
+    if (e.target.closest('.dropdown-panel a')) {
+      document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+      return;
+    }
     if (!e.target.closest('.nav-dropdown'))
       document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
   });
   function toggleMob() {
+    document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
     document.getElementById('mobileMenu').classList.toggle('open');
     document.getElementById('hamburger').classList.toggle('open');
   }
@@ -1288,6 +1300,9 @@
     document.getElementById('mobileMenu').classList.remove('open');
     document.getElementById('hamburger').classList.remove('open');
   }
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => closeMob());
+  });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
 
   const observer = new IntersectionObserver(entries => {
