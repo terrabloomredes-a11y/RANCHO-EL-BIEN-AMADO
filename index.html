@@ -76,7 +76,7 @@
 
     /* ── HERO ── */
     .hero { position: relative; height: 100vh; min-height: 580px; display: flex; align-items: flex-end; overflow: hidden; }
-    .hero-bg { position: absolute; inset: 0; background-image: url('imagenes/rancho.jpg'); background-size: cover; background-position: center; transform: scale(1.04); transition: transform 8s ease-out; }
+    .hero-bg { position: absolute; inset: 0; background-image: url('imagenes/rancho.png'); background-size: cover; background-position: center; transform: scale(1.04); transition: transform 8s ease-out; }
     .hero-bg.loaded { transform: scale(1); }
     .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(28,43,24,0.93) 0%, rgba(28,43,24,0.48) 45%, rgba(28,43,24,0.12) 100%); }
     .hero-content { position: relative; z-index: 2; padding: 0 80px 76px; max-width: 780px; }
@@ -311,6 +311,7 @@
     @media (max-width: 420px) {
       .products-grid { grid-template-columns: 1fr; }
     }
+    
   </style>
 </head>
 <body>
@@ -437,7 +438,7 @@
   <div class="hero-content">
     <div class="hero-eyebrow">PASTOREO LIBRE • PRODUCCIÓN ARTESANAL</div>
     <h1>Auténticidad<br/>que se siente,<br/><em>En cada bocado.</em></h1>
-    <p>Cordero de pastoreo, fermentos naturales, productos elaborados con respeto por la tierra, la tradición y el tiempo.</p>
+    <p>Cordero de Libre pastoreo, fermentos naturales, productos elaborados con respeto por la tierra, la tradición y el tiempo.</p>
     <div class="hero-actions">
       <a href="#catalogo" class="btn-primary">Explorar Colección</a>
       <a href="#nosotros" class="btn-outline">Nuestra Historia</a>
@@ -465,7 +466,7 @@
     <div class="about-content">
       <div class="sec-label">Nuestra Historia</div>
       <h2 class="sec-title">Del campo<br/>a tu mesa,<br/>con honestidad.</h2>
-      <p>En Rancho Bien Amado creemos que los mejores productos no se fabrican — se cuidan. Cada animal, cada fermentación, cada colmena es atendida con el mismo respeto que heredamos de nuestros abuelos.</p>
+      <p>En Rancho El Bien Amado creemos que los mejores productos no se fabrican — se cuidan. Cada animal, cada fermentación, cada colmena es atendida con el mismo respeto que heredamos.</p>
       <p>Nuestro cordero crece libre en praderas naturales. Nuestros vinagres maduran en silencio durante meses. Nuestra miel proviene de flores silvestres sin manipulación.</p>
       <div class="about-vals">
         <div class="about-val"><h5>Sin Aditivos</h5><p>Cero preservantes ni colorantes artificiales.</p></div>
@@ -515,6 +516,7 @@
     <button class="recipe-tab" onclick="showRecipeTab('kombucha')"> Kombucha</button>
     <button class="recipe-tab" onclick="showRecipeTab('kefir-unt')">Kéfir Untable</button>
     <button class="recipe-tab" onclick="showRecipeTab('vinagres')"> Vinagres</button>
+    <button class="recipe-tab" onclick="showRecipeTab('Cortes')"> Cortes</button>
   </div>
 
   <!-- KÉFIR LÍQUIDO -->
@@ -776,38 +778,460 @@
     <div class="recipe-card fi fi-d2">
       <div class="recipe-card-head">
         <div class="recipe-card-copy">
-          <div class="recipe-name">Marinada de Albahaca para Cordero</div>
-          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 10 min + reposo</span><span class="recipe-tag recipe-tag-diff">Intermedio</span></div>
+          <div class="recipe-name">Vinagreta de Albahaca para Ensaladas</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 10 min</span><span class="recipe-tag recipe-tag-diff">Intermedio</span></div>
         </div>
         <div class="recipe-visual">
           <div class="recipe-visual-frame">
-            <img src="imagenes/salsa.jpg" alt="Marinada de Albahaca para Cordero" loading="lazy" />
+            <img src="imagenes/albahaca1.png" alt="Vinagreta de Albahaca para Ensaladas" loading="lazy" />
           </div>
         </div>
       </div>
       <div class="recipe-card-body">
         <div class="recipe-ingredients">Ingredientes</div>
-        <div class="recipe-desc">Vinagre de Albahaca · ajo · aceite de oliva · romero · orégano · limón · sal gruesa</div>
+        <div class="recipe-desc">Vinagre de albahaca · aceite de oliva · miel · mostaza · sal gruesa · pimienta</div>
         <div class="recipe-steps">
-          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Mezcla 3 cucharadas de vinagre de albahaca, ¼ taza aceite, ajo y hierbas.</span></div>
-          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Baña los cortes de cordero y deja marinar en refrigerador mínimo 2 horas.</span></div>
-          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Sella en parrilla caliente. El vinagre da una costra caramelizada única.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Mezcla 3 cucharadas de vinagre de albahaca con aceite, mostaza y miel.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Bate hasta integrar y ajusta con sal y pimienta al gusto.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Sirve sobre ensaladas frescas o verduras asadas.</span></div>
         </div>
       </div>
     </div>
   </div>
+    <div class="recipe-panel" id="tab-Cortes">
+    <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Rack Chops al Romero y Ajo</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱30 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato1.jpg" alt="Rack Chops al Romero y Ajo (Inspiración Española)" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Rack Chops de cordero · ajo · romero fresco · aceite de oliva · mantequilla · sal gruesa · pimienta negra</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Marina los Rack Chops con aceite de oliva, ajo, romero, sal y pimienta durante 20 minutos para potenciar su sabor.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Cocina en una parrilla o sartén caliente de 3 a 4 minutos por lado hasta obtener un dorado uniforme.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Agrega mantequilla al final y deja reposar 5 minutos antes de servir con papas al romero o verduras asadas.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-card fi fi-d1">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Rack Chops con Costra de Hierbas</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 35 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato2.jpg" alt="Rack Chops con Costra de Hierbas" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Rack Chops · mostaza Dijon · pan molido · perejil · romero · aceite de oliva</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Unta los Rack Chops con mostaza y cúbrelos con una mezcla de pan molido, perejil y romero.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Hornea a 190 °C durante 15 a 18 minutos hasta que la costra esté dorada.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Deja reposar unos minutos y acompaña con puré de papa o ensalada fresca.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-card fi fi-d2">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Rack Francés al Horno</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 45 min + reposo</span><span class="recipe-tag recipe-tag-diff">Intermedio</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato3.jpg" alt="Rack Francés al Horno" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Rack Francés de cordero · mostaza Dijon · romero · ajo · aceite de oliva · sal · pimienta</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Unta el Rack con mostaza, ajo, romero, sal y pimienta, dejando marinar durante 20 minutos.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Hornea a 190 °C de 25 a 30 minutos o hasta alcanzar el término deseado.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span></span>Deja reposar 5 minutos antes de cortar y acompaña con verduras rostizadas.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Rack Francés con Salsa de Vino Tinto</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 40 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato4.jpg" alt="Rack Francés con Salsa de Vino Tinto" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Rack Francés · vino tinto · mantequilla · ajo · romero · sal · pimienta</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Sella el Rack en un sartén caliente hasta dorarlo por ambos lados.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Agrega el vino tinto, mantequilla y romero, dejando reducir la salsa a fuego bajo.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Sirve el Rack bañado con la salsa y acompaña con puré de papa.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-card fi fi-d1">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Forequarter Estofado</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 2 h 30 min </span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato5.jpg" alt="Forequarter Estofado" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Forequarter de cordero · zanahoria · papa · cebolla · ajo · vino tinto · laurel</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Dora la carne con ajo y cebolla hasta sellarla completamente.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Agrega las verduras, vino tinto y una hoja de laurel.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Cocina a fuego lento durante 2 horas hasta obtener una carne suave y jugosa.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-card fi fi-d2">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Forequarter al Romero</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱2 h 15 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato6.jpg" alt="Forequarter al Romero" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Forequarter · aceite de oliva · ajo · romero · limón · sal · pimienta</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Marina la carne con aceite, ajo, romero y limón durante una hora.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Hornea tapada a 180 °C por aproximadamente 2 horas.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Destapa los últimos 20 minutos para lograr un exterior dorado.</span></div>
+        </div>
+      </div>
+    </div>
+ <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">T-Bone a la Parrilla</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱20 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato7.jpg" alt="T-Bone a la Parrilla" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">T-Bone de cordero · sal gruesa · pimienta · aceite de oliva · sal</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Sazona la carne con sal, pimienta y un poco de aceite.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Cocina en la parrilla de 4 a 5 minutos por cada lado.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>DDeja reposar unos minutos y acompaña con verduras asadas.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">T-Bone con Chimichurri</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 25 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato8.jpg" alt="T-Bone con Chimichurri" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">T-Bone · chimichurri · ajo · perejil · aceite de oliva · sal</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Asa el T-Bone hasta alcanzar el término deseado.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Prepara un chimichurri mezclando ajo, perejil, aceite y especias.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Sirve la carne con abundante chimichurri y papas al horno.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Osobuco en Salsa de Tomate</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 2 h 30 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato9.jpg" alt="Osobuco en Salsa de Tomate" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Osobuco · jitomate · cebolla · ajo · albahaca · aceite de oliva</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Dora la carne y sofríe la cebolla junto con el ajo.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Agrega el jitomate triturado y cocina lentamente durante 2 horas.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Sirve con pasta, arroz o puré de papa</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Medallón de Pierna al Romero</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 2 h 20 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato10.jpg" alt="Medallón de Pierna al Romero" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Medallones de pierna · romero · ajo · aceite de oliva · sal · pimienta</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Marina los medallones con ajo, romero y aceite durante 20 minutos.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Cocina en un sartén caliente de 4 a 5 minutos por lado.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Sirve con verduras salteadas o ensalada fresca.</span></div>
+        </div>
+      </div>
+    </div>
+  <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Medallón con Salsa de Champiñones</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 30 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato11.jpg" alt="Medallón con Salsa de Champiñones" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Medallones de pierna · champiñones · crema · mantequilla · ajo · sal</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Cocina los medallones hasta dorarlos ligeramente.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Prepara una salsa con champiñones, mantequilla, ajo y crema.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Sirve la carne cubierta con la salsa y acompaña con puré de papa.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Brochetas de Pierna</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 35 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato12.jpg" alt="Brochetas de Pierna" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Pierna de cordero en cubos · pimiento · cebolla · calabaza · aceite de oliva · orégano</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Marina los cubos de carne con aceite, ajo y orégano durante 30 minutos.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Forma las brochetas alternando carne y verduras.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Cocina a la parrilla hasta dorar todos los lados.</span></div>
+        </div>
+      </div>
+    </div>
+  <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Pinchos Morunos</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 40 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato13.jpg" alt="Pinchos Morunos" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Pierna en cubos · pimentón · comino · ajo · aceite de oliva · sal</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Marina la carne con las especias durante una hora.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Ensarta los cubos en brochetas y cocina a fuego medio.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Sirve con arroz, pan pita o ensalada.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Tacos de Chorizo de Cordero</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱1 h 20 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato14.jpg" alt="Tacos de Chorizo de Cordero" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Chorizo de cordero · tortillas de maíz · cebolla · cilantro · limón</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Cocina el chorizo hasta que quede bien dorado.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Calienta las tortillas y rellénalas con el chorizo.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Agrega cebolla, cilantro, limón y tu salsa favorita.</span></div>
+        </div>
+      </div>
+    </div>
+        <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Chorizo con Papas</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 20 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato15.jpg" alt="Chorizo con Papas" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Chorizo de cordero · papas · cebolla · aceite de oliva · perejil</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Cocina las papas hasta que estén doradas.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Agrega el chorizo y cocina hasta integrar los sabores.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Espolvorea perejil fresco y sirve caliente.</span></div>
+        </div>
+      </div>
+    </div> <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Gaoneras a la Parrilla</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 35 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato18.jpg" alt="Gaoneras a la Parrilla" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Gaoneras de cordero · aceite de oliva · sal gruesa · pimienta</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Sazona las gaoneras con sal, pimienta y aceite.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Asa durante 2 a 3 minutos por cada lado.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Sirve con limón y una ensalada fresca.</span></div>
+        </div>
+      </div>
+    </div>
+    </div> <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Tacos de Gaonera</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 15 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato19.jpg" alt="Tacos de Gaonera" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Gaoneras · tortillas · guacamole · cebolla · cilantro · limón</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Cocina la carne a fuego alto hasta dorarla.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Corta en tiras delgadas y colócala sobre las tortillas.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Agrega guacamole, cebolla y cilantro antes de servir.</span></div>
+        </div>
+      </div>
+    </div>
+     </div> <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Hamburguesa Mediterránea</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 20 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato17.jpg" alt="Hamburguesa Mediterránea" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Hamburguesa de cordero · pan brioche · queso feta · jitomate · lechuga · salsa de yogur</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Cocina la hamburguesa hasta obtener un exterior dorado.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Colócala en el pan con queso feta, lechuga y jitomate.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Agrega salsa de yogur y acompaña con papas gajo.</span></div>
+        </div>
+      </div>
+    </div>
+    </div> <div class="recipe-card fi">
+      <div class="recipe-card-head">
+        <div class="recipe-card-copy">
+          <div class="recipe-name">Hamburguesa BBQ</div>
+          <div class="recipe-tags"><span class="recipe-tag recipe-tag-time">⏱ 30 min</span><span class="recipe-tag recipe-tag-diff">Fácil</span></div>
+        </div>
+        <div class="recipe-visual">
+          <div class="recipe-visual-frame">
+            <img src="imagenes/plato17.jpg" alt="Hamburguesa BBQ" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card-body">
+        <div class="recipe-ingredients">Ingredientes</div>
+        <div class="recipe-desc">Hamburguesa de cordero · pan artesanal · queso manchego · cebolla caramelizada · salsa BBQ</div>
+        <div class="recipe-steps">
+          <div class="recipe-step"><div class="recipe-step-num">1</div><span>Cocina la hamburguesa y derrite el queso sobre la carne.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">2</div><span>Arma la hamburguesa con cebolla caramelizada y salsa BBQ.</span></div>
+          <div class="recipe-step"><div class="recipe-step-num">3</div><span>Sirve con papas fritas o aros de cebolla.</span></div>
+        </div>
+      </div>
+    </div>
+
 </section>
+
+
 
 <!-- CTA -->
 <section class="cta-section" id="contacto">
   <div class="sec-label" style="justify-content:center;">Hacer un Pedido</div>
   <h2 class="sec-title fi">¿Listo para probar<br/>lo auténtico?</h2>
-  <p class="sec-sub fi">Trabajamos con restaurantes, chefs y clientes directos. Cuéntanos qué necesitas o usa el catálogo para armar tu pedido.</p>
+  <p class="sec-sub fi">Trabajamos con restaurantes, clientes directos. Cuéntanos qué necesitas o usa el catálogo para armar tu pedido.</p>
   <div class="cta-actions fi">
     <a href="#catalogo" class="btn-gold">🛒 Ir al Catálogo</a>
     <a href="#" onclick="openCart()" class="btn-outline-green">Ver mi Carrito</a>
   </div>
-  <p style="margin-top:36px;font-size:12px;color:var(--fg-muted);">También puedes escribirnos directamente a WhatsApp o por correo.<br/><strong style="color:var(--green);">Pregunta por precios al mayoreo para restaurantes.</strong></p>
+  <p style="margin-top:36px;font-size:12px;color:var(--fg-muted);">También puedes escribirnos directamente a WhatsApp <br/><strong style="color:var(--green);">Pregunta por precios al mayoreo para restaurantes.</strong></p>
 </section>
 
 <!-- FOOTER -->
@@ -816,7 +1240,7 @@
     <div class="footer-brand">
       <div style="display:flex;align-items:center;gap:11px;">
         <img src="imagenes/logo.png" alt="Logo Rancho Bien Amado" class="footer-logo-img" loading="lazy" />
-        <div class="footer-brand-txt">Rancho Bien Amado<span>Productos Artesanales</span></div>
+        <div class="footer-brand-txt">Rancho  El Bien Amado<span>Productos Artesanales</span></div>
       </div>
       <p>Del campo a tu mesa, con honestidad. Productos naturales de alta calidad, elaborados con respeto por la tierra y tradición generacional.</p>
       <div class="footer-social">
@@ -862,8 +1286,8 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2024 Rancho Bien Amado. Todos los derechos reservados.</p>
-    <p>Hecho con ♥ en México</p>
+    <p>© 2026 Rancho Bien Amado. Todos los derechos reservados.</p>
+    <p>Hecho con ♥ en Hidalgo</p>
   </div>
 </footer>
 
@@ -926,17 +1350,17 @@
   //  PRODUCTS
   // ══════════════════════════════════════════
   const PRODUCTS = [
-    { id:1,  cat:'borrego',        emoji:'🥩', name:'Rack Chops',             price: 875, desc:'Costillas individuales de cordero, jugosas y tiernas. Ideales a la parrilla o al horno.',                                   img:'imagenes/rackchops.png',      badge:'Popular',           badgeColor:'#2E5E1E' },
-    { id:2,  cat:'borrego',        emoji:'🥩', name:'Rack Francés',            price: 875, desc:'Costillar con hueso limpio estilo francés. El corte estrella para fine dining.',                                              img:'imagenes/frances.png',    badge:'Estrella',          badgeColor:'#C4552A' },
-    { id:3,  cat:'borrego',        emoji:'🥩', name:'Forequarter',             price: 860, desc:'Cuarto delantero completo. Perfecto para cocción lenta, estofados y barbacoa.',                                               img:'imagenes/Forequarter.png' },
-    { id:4,  cat:'borrego',        emoji:'🥩', name:'T-Bone de Cordero',       price: 500, desc:'Corte premium con filete y lomo separados por el hueso. Intenso sabor a campo.',                                             img:'imagenes/T-Bone.png' },
-    { id:5,  cat:'borrego',        emoji:'🥩', name:'Osobuco',                 price: 437, desc:'Osobuco de cordero, corte con tuétano para guisos gourmet de cocción prolongada.',                                           img:'imagenes/Osobuco.png' },
-    { id:6,  cat:'borrego',        emoji:'🥩', name:'Medallón de Pierna',      price: 470, desc:'Rodajas gruesas de pierna. Corte versátil para asar, guisar o marinar.',                                                     img:'imagenes/Medallondepierna.png' },
-    { id:7,  cat:'borrego',        emoji:'🥩', name:'Pierna en Cubos',         price: 470, desc:'Pierna deshuesada en cubos. Lista para brochetas, guisos o birria artesanal.',                                               img:'imagenes/piernaencubos.png' },
-    { id:9,  cat:'borrego',        emoji:'🌭', name:'Chorizo de Cordero',      price: 470, desc:'Embutido artesanal con especias naturales. Sin conservadores. Sabor único.',                                                  img:'imagenes/Chorizo.png' },
-    { id:10, cat:'borrego',        emoji:'🥩', name:'Gaoneras',                price: 235, desc:'Corte tipo "bistec" de paleta, delgado y sabroso. Ideal para asados rápidos.',                                               img:'imagenes/gaoneras.png',       badge:'Nuevas',             badgeColor:'#C89B2A' },
-    { id:18, cat:'borrego',        emoji:'🍔', name:'Hamburguesa de 500g',     price: 235, desc:'Carne de cordero sazonada con especias del rancho. Jugosa, compacta y lista para parrilla o plancha.',                       img:'imagenes/Hamburguesa.png',    badge:'500G',           badgeColor:'#2E5E1E' },
-    { id:19, cat:'borrego',        emoji:'🍔', name:'Hamburguesa de 600g',     price: 285, desc:'Versión artesanal con perfil más especiado y sabor ahumado. Ideal para pedido por caja o mayoreo.',                          img:'imagenes/Hamburguesa.png',    badge:'600G',             badgeColor:'#C4552A' },
+    { id:1,  cat:'borrego',        emoji:'🥩', name:'Rack Chops',             price: 875, desc:'Costillas individuales de cordero, jugosas y tiernas. Ideales a la parrilla o al horno.',                                   img:'imagenes/rackchops.png',      badge:'Agotado',           badgeColor:'#2E5E1E' },
+    { id:2,  cat:'borrego',        emoji:'🥩', name:'Rack Francés',            price: 875, desc:'Costillar con hueso limpio estilo francés. El corte estrella para fine dining.',                                              img:'imagenes/frances.png',    badge:'Agotado',          badgeColor:'#C4552A' },
+    { id:3,  cat:'borrego',        emoji:'🥩', name:'Forequarter',             price: 860, desc:'Cuarto delantero completo. Perfecto para cocción lenta, estofados y barbacoa.',                                               img:'imagenes/Forequarter.png', badge:'Agotado',           badgeColor:'#2E5E1E'},
+    { id:4,  cat:'borrego',        emoji:'🥩', name:'T-Bone de Cordero',       price: 600, desc:'Corte premium con filete y lomo separados por el hueso. Intenso sabor a campo.',                                             img:'imagenes/T-Bone.png' ,      badge:'Agotado',           badgeColor:'#2E5E1E'},
+    { id:5,  cat:'borrego',        emoji:'🥩', name:'Osobuco',                 price: 460, desc:'Osobuco de cordero, corte con tuétano para guisos gourmet de cocción prolongada.',                                           img:'imagenes/Osobuco.png' },
+    { id:6,  cat:'borrego',        emoji:'🥩', name:'Medallón de Pierna',      price: 480, desc:'Rodajas gruesas de pierna. Corte versátil para asar, guisar o marinar.',                                                     img:'imagenes/Medallondepierna.png' },
+    { id:7,  cat:'borrego',        emoji:'🥩', name:'Pierna en Cubos',         price: 480, desc:'Pierna deshuesada en cubos. Lista para brochetas, guisos o birria artesanal.',                                               img:'imagenes/piernaencubos.png' },
+    { id:9,  cat:'borrego',        emoji:'🌭', name:'Chorizo de Cordero',      price: 480, desc:'Embutido artesanal con especias naturales. Sin conservadores. Sabor único.',                                                  img:'imagenes/Chorizo.png' },
+    { id:10, cat:'borrego',        emoji:'🥩', name:'Gaoneras',                price: 480, desc:'Corte tipo "bistec" de paleta, delgado y sabroso. Ideal para asados rápidos.',                                               img:'imagenes/gaoneras.png',       badge:'Nuevas',             badgeColor:'#C89B2A' },
+    { id:18, cat:'borrego',        emoji:'🍔', name:'Hamburguesa de 500g',     price: 250, desc:'Carne de cordero sazonada con especias del rancho. Jugosa, compacta y lista para parrilla o plancha.',                       img:'imagenes/Hamburguesa.png',    badge:'500G',           badgeColor:'#2E5E1E' },
+    { id:19, cat:'borrego',        emoji:'🍔', name:'Hamburguesa de 600g',     price: 300, desc:'Versión artesanal con perfil más especiado y sabor ahumado. Ideal para pedido por caja o mayoreo.',                          img:'imagenes/Hamburguesa.png',    badge:'600G',             badgeColor:'#C4552A' },
     { id:11, cat:'vinagres',       emoji:'🍶', name:'Vinagre de Manzana',      price: 130, desc:'Fermentado en pequeños lotes. Acidez equilibrada, notas frutales. Con madre activa, sin pasteurizar.',                       img:'imagenes/manzana.png',        badge:'Sin pasteurizar',   badgeColor:'#2E5E1E' },
     { id:12, cat:'vinagres',       emoji:'🍶', name:'Vinagre de Pera',         price: 140, desc:'Suave y aromático, con dulzor natural de la fruta. Excelente en aderezos y marinadas.',                                      img:'imagenes/pera.png' },
     { id:13, cat:'vinagres',       emoji:'🌿', name:'Vinagre de Albahaca',     price: 160, desc:'Acidez herbal única con aroma intenso a albahaca fresca. Favorito de los chefs.',                                            img:'imagenes/albahaca1.png' },
@@ -1069,7 +1493,7 @@
   // ══════════════════════════════════════════
   //  RECIPE TABS
   // ══════════════════════════════════════════
-  const TAB_IDS = ['kefir-liq', 'kombucha', 'kefir-unt', 'vinagres'];
+  const TAB_IDS = ['kefir-liq', 'kombucha', 'kefir-unt', 'vinagres', 'Cortes'];
 
   function showRecipeTab(tab) {
     document.querySelectorAll('.recipe-tab').forEach((b, i) => {
@@ -1198,9 +1622,7 @@
     });
   }
 
-  // ══════════════════════════════════════════
-  //  WHATSAPP
-  // ══════════════════════════════════════════
+ 
   function sendToWhatsApp() {
     if (Object.keys(cart).length === 0) return;
     const lines = ['🌿 *PEDIDO — Rancho Bien Amado*', '', 'Hola, me interesan los siguientes productos:', ''];
@@ -1305,6 +1727,22 @@
   setTimeout(() => {
     document.querySelectorAll('#productsGrid .fi:not(.v)').forEach(el => observer.observe(el));
   }, 100);
+
+  // Organizar recetas: mover recetas de carne al panel de Cortes
+  document.addEventListener('DOMContentLoaded', () => {
+    const panelCortes = document.getElementById('tab-Cortes');
+    if (!panelCortes) return;
+    const meatKeywords = ['cordero','rack','rack chops','t-bone','osobuco','medallón','medallon','hamburguesa','gaonera','pierna','chorizo','forequarter','t bone'];
+    document.querySelectorAll('.recipes-section .recipe-card').forEach(card => {
+      const panel = card.closest('.recipe-panel');
+      const text = (card.textContent || '').toLowerCase();
+      const isMeat = meatKeywords.some(k => text.includes(k));
+      if (!isMeat) return;
+      if (panel && panel.id === 'tab-Cortes') return; // ya está bien
+      // Mueve la tarjeta al panel de Cortes
+      panelCortes.appendChild(card);
+    });
+  });
 </script>
 </body>
 </html>
